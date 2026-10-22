@@ -10,22 +10,20 @@
 
 using namespace std;
 
-// Enlace no dirigido entre dos centrales (índices internos 0..n-1)
+// Enlace generico
 struct Enlace {
-    int origen;
-    int destino;
-    double costo;
+    int origen = -1;
+    int destino = -1;
+    double costo = 0.0;       
+    double capacidad = 0.0;
 };
 
-// Red leída del JSON. Los IDs originales se guardan para devolverlos igual.
 struct Red {
     vector<ValorJson> idsNodos;
     vector<Enlace> enlaces;
-    int numNodos() const { return idsNodos.size(); }
+    int numNodos() const { return static_cast<int>(idsNodos.size()); }
 };
 
-// Busca la primera clave que exista de una lista de nombres posibles.
-// Así el lector funciona aunque el JSON use "edges" o "links", "cost" o "weight", etc.
 inline const ValorJson* buscarClave(const ValorJson& obj, const vector<string>& nombres) {
     for (const string& nombre : nombres) {
         if (obj.tiene(nombre)) return &obj[nombre];
@@ -33,7 +31,6 @@ inline const ValorJson* buscarClave(const ValorJson& obj, const vector<string>& 
     return nullptr;
 }
 
-// Convierte un ID (texto o número) a una clave única para el mapa
 inline string claveNodo(const ValorJson& id) {
     return id.tipo == ValorJson::TEXTO ? id.texto : numeroJson(id.numero);
 }
@@ -47,7 +44,7 @@ private:
         string clave = claveNodo(id);
         auto it = indicePorId.find(clave);
         if (it != indicePorId.end()) return it->second;
-        int nuevo = red.idsNodos.size();
+        int nuevo = static_cast<int>(red.idsNodos.size());
         indicePorId[clave] = nuevo;
         red.idsNodos.push_back(id);
         return nuevo;
@@ -55,7 +52,6 @@ private:
 
 public:
     Red leer(const ValorJson& entrada) {
-        // 1. Nodos (opcional): ["AT","CH"] o [{"id":"AT",...}]
         const ValorJson* nodos = buscarClave(entrada, {"nodes", "nodos", "vertices"});
         if (nodos && nodos->esLista()) {
             for (const ValorJson& nodo : nodos->lista) {
@@ -65,30 +61,34 @@ public:
             }
         }
 
-        // 2. Enlaces: [["AT","CH",120.5]] o [{"u":"AT","v":"CH","cost":120.5}]
         const ValorJson* enlaces = buscarClave(entrada, {"edges", "links", "enlaces", "aristas"});
         if (enlaces && enlaces->esLista()) {
             for (const ValorJson& e : enlaces->lista) {
-                const ValorJson *a, *b, *w;
+                const ValorJson *a = nullptr, *b = nullptr, *w = nullptr, *cap = nullptr;
                 if (e.esLista()) {
                     if (e.lista.size() < 3) throw runtime_error("Enlace incompleto");
                     a = &e.lista[0];
                     b = &e.lista[1];
                     w = &e.lista[2];
+                    if (e.lista.size() >= 4) cap = &e.lista[3];
                 } else {
                     a = buscarClave(e, {"u", "from", "source", "src", "origen", "a"});
                     b = buscarClave(e, {"v", "to", "target", "dst", "destino", "b"});
                     w = buscarClave(e, {"cost", "weight", "w", "distance", "costo", "distancia", "peso"});
+                    cap = buscarClave(e, {"capacity", "capacidad", "cap"});
                 }
-                if (!a || !b || !w) throw runtime_error("Enlace con campos faltantes");
-                red.enlaces.push_back({indiceDe(*a), indiceDe(*b), w->numero});
+                if (!a || !b) throw runtime_error("Enlace con campos faltantes");
+
+                double valorCosto = (w != nullptr) ? w->numero : 0.0;
+                double valorCapacidad = (cap != nullptr) ? cap->numero : valorCosto;
+
+                red.enlaces.push_back({indiceDe(*a), indiceDe(*b), valorCosto, valorCapacidad});
             }
         }
 
-        // 3. Alternativa: matriz de distancias completa
         const ValorJson* matriz = buscarClave(entrada, {"matrix", "distances", "matriz", "distancias"});
         if (matriz && matriz->esLista()) {
-            int n = matriz->lista.size();
+            int n = static_cast<int>(matriz->lista.size());
             for (int i = red.numNodos(); i < n; ++i) {
                 ValorJson id;
                 id.tipo = ValorJson::NUMERO;
@@ -98,7 +98,7 @@ public:
             for (int i = 0; i < n; ++i) {
                 for (int j = i + 1; j < n; ++j) {
                     double w = matriz->lista[i].lista[j].numero;
-                    if (w >= 0) red.enlaces.push_back({i, j, w});
+                    if (w >= 0) red.enlaces.push_back({i, j, w, w});
                 }
             }
         }
@@ -106,11 +106,10 @@ public:
         return red;
     }
 
-    // Índice de un nodo dado su ID; -1 si no existe
     int buscarIndice(const ValorJson& id) const {
         auto it = indicePorId.find(claveNodo(id));
         return it == indicePorId.end() ? -1 : it->second;
     }
 };
 
-#endif
+#endif // GRAFO_H
