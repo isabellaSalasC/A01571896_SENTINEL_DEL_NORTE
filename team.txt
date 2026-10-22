@@ -1,0 +1,11 @@
+A00841358 | Sophia Alexandra Ramos García
+Contribuciones: Algoritmos para el Flujo Máximo y Voronoi
+
+A00842035 | Marian Guadalupe Willis Lozano
+Contribuciones: Integración, pruebas y benchmarks
+
+A01770709 | Regina Elizabeth Flores Sosa 
+Contribuciones: Árbol de expansión mínima y problema del viajante
+
+A01571896 | Isabella Salas Corpus 
+Contribuciones: Algoritmos para firmas, palíndromos y subcadena común
