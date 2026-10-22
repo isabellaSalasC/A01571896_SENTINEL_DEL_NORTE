@@ -13,6 +13,9 @@
 #include "matching.h"
 #include "palindrome.h"
 #include "common_substr.h"
+#include "flujoMaximo.h"
+#include "alternativaFlujoMaximo.h"
+
 
 using namespace std;
 
@@ -62,6 +65,57 @@ string resolverTSPJson(const ValorJson& entrada) {
     salida += "],\"cost\":" + numeroJson(tsp.costoTotal);
     salida += ",\"exact\":" + string(tsp.esOptimo ? "true" : "false") + "}";
     return salida;
+}
+// ---------- Módulo I · Flujo maximo ----------
+string resolverMaxFlow(const ValorJson& entrada) {
+    LectorRed lector;
+    Red red = lector.leer(entrada);
+
+    int totalNodos = red.numNodos();
+
+    int fuente = 0;
+    const ValorJson* origen = buscarClave(entrada, {"source", "start", "origin", "origen", "fuente", "inicio"});
+    if (origen) {
+        fuente = lector.buscarIndice(*origen);
+        if (fuente == -1) {
+            throw runtime_error("Nodo fuente/origen no existe");
+        }
+    }
+
+    int sumidero = totalNodos - 1;
+    const ValorJson* destino = buscarClave(entrada, {"target", "destination", "sink", "destino", "sumidero", "fin"});
+    if (destino) {
+        sumidero = lector.buscarIndice(*destino);
+        if (sumidero == -1) {
+            throw runtime_error("Nodo destino/sumidero no existe");
+        }
+    }
+
+    size_t totalEnlaces = red.enlaces.size();
+
+    // Instanciacion de ambas estructuras de flujo
+    GrafoFlujo redEK(totalNodos);
+    Sentinel::GrafoFlujoDinic redDinic(totalNodos);
+
+    for (size_t i = 0; i < totalEnlaces; ++i) {
+        const Enlace& e = red.enlaces[i];
+        long long cap = static_cast<long long>(e.capacidad);
+        redEK.agregarArista(e.origen, e.destino, cap);
+        redDinic.agregarArista(e.origen, e.destino, cap);
+    }
+
+    // Ejecucion incondicional de Edmonds-Karp y Dinic
+    long long flujoEK = redEK.obtenerFlujoMaximo(fuente, sumidero);
+    long long flujoDinic = redDinic.obtenerFlujoMaximo(fuente, sumidero);
+
+    bool coinciden = (flujoEK == flujoDinic);
+
+    return "{\"max_flow\":" + to_string(flujoDinic) +
+           ",\"edmonds_karp_flow\":" + to_string(flujoEK) +
+           ",\"dinic_flow\":" + to_string(flujoDinic) +
+           ",\"match\":" + string(coinciden ? "true" : "false") +
+           ",\"source\":" + escribirJson(red.idsNodos[fuente]) +
+           ",\"target\":" + escribirJson(red.idsNodos[sumidero]) + "}";
 }
 
 // ---------- Módulo II · Matching (función de matching.h) ----------
