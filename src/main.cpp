@@ -11,6 +11,8 @@
 #include "json.h"
 #include "viajante.h"
 #include "matching.h"
+#include "palindrome.h"
+#include "common_substr.h"
 
 using namespace std;
 
@@ -98,6 +100,59 @@ string resolverMatching(const ValorJson& entrada) {
     return salida + "]}";
 }
 
+
+// ---------- Módulo II · Palindrome (Manacher) ----------
+string resolverPalindrome(const ValorJson& entrada) {
+    string T1 = leerTransmision(entrada,
+        {"transmission1", "t1", "T1", "transmision1"});
+
+    string T2 = leerTransmision(entrada,
+        {"transmission2", "t2", "T2", "transmision2"});
+
+    vector<ResultadoPalindromo> resultados =
+        analizarPalindromos(T1, T2);
+
+    string salida = "{\"results\":[";
+
+    for (int i = 0; i < (int)resultados.size(); i++) {
+        if (i > 0) {
+            salida += ",";
+        }
+
+        salida += "{\"start\":"
+               + to_string(resultados[i].posicionInicial)
+               + ",\"end\":"
+               + to_string(resultados[i].posicionFinal)
+               + "}";
+    }
+
+    salida += "]}";
+
+    return salida;
+}
+
+
+// ---------- Modulo II · Longest Common Substring ----------
+string resolverCommonSubstring(const ValorJson& entrada) {
+
+    string T1 = leerTransmision(entrada,
+        {"transmission1", "t1", "T1", "transmision1"});
+
+    string T2 = leerTransmision(entrada,
+        {"transmission2", "t2", "T2", "transmision2"});
+
+    ResultadoSubcadena resultado = longestCommonSubstring(T1, T2);
+
+    string salida = "{\"start\":"
+        + to_string(resultado.posicionInicial)
+        + ",\"end\":"
+        + to_string(resultado.posicionFinal)
+        + "}";
+
+    return salida;
+}
+
+
 int main() {
     ios::sync_with_stdio(false);
     string texto((istreambuf_iterator<char>(cin)), istreambuf_iterator<char>());
@@ -114,9 +169,12 @@ int main() {
             cout << resolverTSPJson(entrada) << endl;
         } else if (modo == "matching") {
             cout << resolverMatching(entrada) << endl;
+        } else if (modo == "palindrome") {
+            cout << resolverPalindrome(entrada) << endl;
+        } else if (modo == "common_substring") {
+            cout << resolverCommonSubstring(entrada) << endl;
         }
-        // TODO (equipo): agregar aquí "maxflow", "voronoi",
-        // "palindrome" y "common" con el mismo patrón.
+        
         else {
             cout << "{\"error\":\"Modo no implementado: " << modo << "\"}" << endl;
             return 1;
