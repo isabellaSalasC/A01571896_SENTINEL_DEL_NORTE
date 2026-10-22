@@ -2,6 +2,7 @@
 #include <vector>
 #include "arbolExpanMin.h"
 #include "viajante.h"
+#include "matching.h"
 
 using namespace std;
 
@@ -24,6 +25,25 @@ int main() {
     cout << "2. Ruta de reparto:" << endl;
     for (int colonia : tsp.ruta) cout << char('A' + colonia) << " ";
     cout << endl;
+
+    // Ejemplo de uso de KMP para encontrar firmas en transmisiones
+    string T1 = "AABCDCBA12FFABBA";
+    string T2 = "00BCDCBAFFABBA77";
+
+    vector<string> firmas = {"ABBA", "FF", "DEAD"};
+
+    vector<ResultadoMatching> matching = todasFirmas(T1, T2, firmas);
+
+    for (int i = 0; i < (int)matching.size(); i++) {
+        if (matching[i].encontrado) {
+            if (matching[i].encontrado) {
+                cout << "true" << matching[i].posicionInicial << endl;
+            }
+            else {
+                cout << "false" << endl;
+            }
+        }
+    }
 
     return 0;
 }
