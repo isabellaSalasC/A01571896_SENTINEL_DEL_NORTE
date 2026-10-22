@@ -1,0 +1,41 @@
+{
+  "name": "flow_dirigido_n",
+  "request": {
+    "mode": "flow",
+    "input": {
+      "n": 4,
+      "edges": [
+        {
+          "u": 0,
+          "v": 1,
+          "capacity": 3
+        },
+        {
+          "u": 1,
+          "v": 3,
+          "capacity": 2
+        },
+        {
+          "u": 0,
+          "v": 2,
+          "capacity": 2
+        },
+        {
+          "u": 2,
+          "v": 3,
+          "capacity": 3
+        },
+        {
+          "u": 3,
+          "v": 0,
+          "capacity": 9
+        }
+      ],
+      "source": 0,
+      "sink": 3
+    }
+  },
+  "expect": {
+    "flow": 4
+  }
+}

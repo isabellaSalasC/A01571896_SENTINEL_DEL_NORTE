@@ -60,7 +60,7 @@ public:
         if (nodos && nodos->esLista()) {
             for (const ValorJson& nodo : nodos->lista) {
                 const ValorJson* id = nodo.esObjeto() ? buscarClave(nodo, {"id", "name", "nombre"}) : &nodo;
-                if (!id) throw runtime_error("Nodo sin id");
+                if (!id) fallar("Nodo sin id");
                 indiceDe(*id);
             }
         }
@@ -71,7 +71,7 @@ public:
             for (const ValorJson& e : enlaces->lista) {
                 const ValorJson *a, *b, *w;
                 if (e.esLista()) {
-                    if (e.lista.size() < 3) throw runtime_error("Enlace incompleto");
+                    if (e.lista.size() < 3) fallar("Enlace incompleto");
                     a = &e.lista[0];
                     b = &e.lista[1];
                     w = &e.lista[2];
@@ -80,7 +80,7 @@ public:
                     b = buscarClave(e, {"v", "to", "target", "dst", "destino", "b"});
                     w = buscarClave(e, {"cost", "weight", "w", "distance", "costo", "distancia", "peso"});
                 }
-                if (!a || !b || !w) throw runtime_error("Enlace con campos faltantes");
+                if (!a || !b || !w) fallar("Enlace con campos faltantes");
                 red.enlaces.push_back({indiceDe(*a), indiceDe(*b), w->numero});
             }
         }

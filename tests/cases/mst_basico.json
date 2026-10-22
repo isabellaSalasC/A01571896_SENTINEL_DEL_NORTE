@@ -1,0 +1,40 @@
+{
+  "name": "mst_basico",
+  "request": {
+    "mode": "mst",
+    "input": {
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "edges": [
+        [
+          "A",
+          "B",
+          1
+        ],
+        [
+          "B",
+          "C",
+          2
+        ],
+        [
+          "A",
+          "C",
+          3
+        ],
+        [
+          "C",
+          "D",
+          1
+        ]
+      ]
+    }
+  },
+  "expect": {
+    "cost": 4,
+    "connected": true
+  }
+}

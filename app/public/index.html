@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinela del Norte · SENTINEL Digital Twin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230e1d1f%27/%3E%3Ccircle cx=%2711%27 cy=%2718%27 r=%274%27 fill=%27%234fd1b6%27/%3E%3Ccircle cx=%2722%27 cy=%2710%27 r=%274%27 fill=%27%23f5c04a%27/%3E%3Cpath d=%27M11 18L22 10%27 stroke=%27%23ff8f6b%27 stroke-width=%273%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#top">SENTINELA <b>DEL NORTE</b></a>
+  <nav>
+    <a href="#red">Network Explorer</a>
+    <a href="#ciber">Cybersecurity Console</a>
+    <a href="#bench">Benchmark</a>
+  </nav>
+  <span id="coreStatus" class="status">núcleo C++ …</span>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow">TC2038 · L3 · SENTINEL DIGITAL TWIN</p>
+    <h1>La red,<br><b>sobre el mapa.</b></h1>
+    <p class="lede">Cada número de esta pantalla lo calcula el ejecutable de C++. La interfaz sólo le envía un JSON y dibuja lo que responde.</p>
+  </section>
+
+  <!-- ============================= Scenario Manager ============================= -->
+  <section class="bar" aria-label="Scenario Manager">
+    <label class="field">
+      <span class="lbl">ESCENARIO</span>
+      <select id="scenarioSelect"></select>
+    </label>
+    <div id="scenarioMeta" class="chips"></div>
+    <div class="spacer"></div>
+    <button id="btnUpload" class="ghost" type="button">Subir escenario JSON</button>
+    <input id="fileUpload" type="file" accept="application/json,.json" hidden>
+    <button id="btnRestore" class="ghost" type="button" disabled>Restablecer enlaces</button>
+  </section>
+  <p id="scenarioDesc" class="note"></p>
+
+  <!-- ============================ Network Explorer / Lab ============================ -->
+  <section id="red" class="lab">
+    <div class="mapcard">
+      <div class="maptag"><span id="mapTag">GÉANT · 14 NODES · 24 LINKS</span></div>
+      <div class="zoom">
+        <button id="zoomIn" type="button" aria-label="Acercar">+</button>
+        <button id="zoomOut" type="button" aria-label="Alejar">−</button>
+        <button id="zoomReset" type="button" aria-label="Restablecer vista">⌖</button>
+      </div>
+      <svg id="map" viewBox="0 0 860 680" role="img" aria-label="Mapa de la red"></svg>
+      <div id="legend" class="legend"></div>
+    </div>
+
+    <aside class="panel">
+      <div id="tabs" class="tabs" role="tablist">
+        <button role="tab" data-tab="mst" class="on">MST</button>
+        <button role="tab" data-tab="tsp">TSP</button>
+        <button role="tab" data-tab="flow">FLUJO</button>
+        <button role="tab" data-tab="voronoi">VORONOI</button>
+      </div>
+      <div id="controls" class="controls"></div>
+      <div id="result" class="result"></div>
+    </aside>
+  </section>
+
+  <!-- ============================= Cybersecurity Console ============================= -->
+  <section id="ciber" class="cyber">
+    <p class="eyebrow">MÓDULO II · CYBERSECURITY CONSOLE</p>
+    <h2>Inspecciona dos transmisiones</h2>
+    <p class="note">Hexadecimal en mayúsculas. Los saltos de línea se ignoran y las posiciones son de base 1.</p>
+
+    <div class="cy-grid">
+      <label class="field wide"><span class="lbl">TRANSMISSION 1</span><textarea id="t1" spellcheck="false" rows="3"></textarea></label>
+      <label class="field wide"><span class="lbl">TRANSMISSION 2</span><textarea id="t2" spellcheck="false" rows="3"></textarea></label>
+      <label class="field wide"><span class="lbl">TRES FIRMAS (SEPARADAS POR COMAS)</span><input id="sigs" type="text" spellcheck="false"></label>
+    </div>
+
+    <div class="row">
+      <label class="field"><span class="lbl">LONGITUD ALEATORIA</span><input id="randLen" type="number" min="10" max="300000" value="2000" step="100"></label>
+      <button id="btnRandom" class="ghost" type="button">Generar aleatorias</button>
+      <button id="btnExample" class="ghost" type="button">Cargar ejemplo del reto</button>
+      <button id="btnAnalyze" class="primary" type="button">Analizar</button>
+    </div>
+
+    <div id="cyberOut"></div>
+  </section>
+
+  <!-- ================================== Benchmark ================================== -->
+  <section id="bench" class="benchsec">
+    <p class="eyebrow">EVIDENCIA EXPERIMENTAL</p>
+    <h2>Benchmarks reproducibles</h2>
+    <p class="note">Tiempos medidos por el propio ejecutable (sólo el algoritmo, mediana de repeticiones). Se generan con <code>make bench</code>.</p>
+    <div id="benchBody" class="benchbody">Cargando…</div>
+  </section>
+</main>
+
+<footer class="foot">TC2038 · HACKATHON ACADÉMICO · SENTINELA DEL NORTE · <a href="#top">VOLVER ARRIBA</a></footer>
+
+<script src="app.js"></script>
+</body>
+</html>

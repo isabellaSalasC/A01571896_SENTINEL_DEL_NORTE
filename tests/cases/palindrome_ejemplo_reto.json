@@ -1,0 +1,22 @@
+{
+  "name": "palindrome_ejemplo_reto",
+  "request": {
+    "mode": "palindrome",
+    "input": {
+      "transmission1": "AABCDCBA12FFABBA",
+      "transmission2": "00BCDCBAFFABBA77"
+    }
+  },
+  "expect": {
+    "results": [
+      {
+        "start": 2,
+        "end": 8
+      },
+      {
+        "start": 7,
+        "end": 12
+      }
+    ]
+  }
+}

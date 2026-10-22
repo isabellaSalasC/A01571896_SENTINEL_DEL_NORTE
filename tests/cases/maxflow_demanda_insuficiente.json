@@ -1,0 +1,28 @@
+{
+  "name": "maxflow_demanda_insuficiente",
+  "request": {
+    "mode": "maxflow",
+    "input": {
+      "nodes": [
+        "A",
+        "B"
+      ],
+      "edges": [
+        {
+          "id": 0,
+          "u": "A",
+          "v": "B",
+          "cost": 1,
+          "capacity": 3
+        }
+      ],
+      "source": "A",
+      "sink": "B",
+      "demand": 5
+    }
+  },
+  "expect": {
+    "max_flow": 3,
+    "demand_satisfied": false
+  }
+}

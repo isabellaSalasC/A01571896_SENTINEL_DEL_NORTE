@@ -1,0 +1,14 @@
+{
+  "name": "common_substring_ejemplo_reto",
+  "request": {
+    "mode": "common_substring",
+    "input": {
+      "transmission1": "AABCDCBA12FFABBA",
+      "transmission2": "00BCDCBAFFABBA77"
+    }
+  },
+  "expect": {
+    "start": 3,
+    "end": 8
+  }
+}

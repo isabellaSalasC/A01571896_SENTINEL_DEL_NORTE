@@ -1,0 +1,24 @@
+{
+  "name": "palindrome_ranges",
+  "request": {
+    "mode": "palindrome",
+    "input": {
+      "transmissions": [
+        "AABCDCBA12FFABBA",
+        "00BCDCBAFFABBA77"
+      ]
+    }
+  },
+  "expect": {
+    "ranges": [
+      [
+        2,
+        8
+      ],
+      [
+        7,
+        12
+      ]
+    ]
+  }
+}

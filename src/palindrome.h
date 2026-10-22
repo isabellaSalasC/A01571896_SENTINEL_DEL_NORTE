@@ -56,8 +56,6 @@ inline ResultadoPalindromo manacher(const string& s) {
         }
 
         // Guardar el palindromo mas largo
-        int start = (i - P[i]) / 2;
-
         if (P[i] > maxLen) {
             maxLen = P[i];
             centerIdx = i;

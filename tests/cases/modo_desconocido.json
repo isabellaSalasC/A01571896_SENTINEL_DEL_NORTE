@@ -1,0 +1,10 @@
+{
+  "name": "modo_desconocido",
+  "request": {
+    "mode": "inexistente",
+    "input": {}
+  },
+  "expect": {
+    "error": "Modo no implementado: inexistente"
+  }
+}

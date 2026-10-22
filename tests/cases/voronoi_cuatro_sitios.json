@@ -1,0 +1,67 @@
+{
+  "name": "voronoi_cuatro_sitios",
+  "request": {
+    "mode": "voronoi",
+    "input": {
+      "sites": [
+        {
+          "id": "A",
+          "x": 10,
+          "y": 10
+        },
+        {
+          "id": "B",
+          "x": 80,
+          "y": 20
+        },
+        {
+          "id": "C",
+          "x": 50,
+          "y": 80
+        },
+        {
+          "id": "D",
+          "x": 50,
+          "y": 40
+        }
+      ],
+      "domain": [
+        0,
+        0,
+        100,
+        100
+      ],
+      "queries": [
+        {
+          "x": 45,
+          "y": 45
+        },
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 150,
+          "y": 50
+        }
+      ]
+    }
+  },
+  "expect": {
+    "total_area": 10000,
+    "queries": [
+      {
+        "site": "D",
+        "inside_domain": true
+      },
+      {
+        "site": "A",
+        "inside_domain": true
+      },
+      {
+        "site": "B",
+        "inside_domain": false
+      }
+    ]
+  }
+}
