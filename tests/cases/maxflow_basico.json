@@ -1,0 +1,54 @@
+{
+  "name": "maxflow_basico",
+  "request": {
+    "mode": "maxflow",
+    "input": {
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "edges": [
+        {
+          "id": 0,
+          "u": "A",
+          "v": "B",
+          "cost": 1,
+          "capacity": 10
+        },
+        {
+          "id": 1,
+          "u": "A",
+          "v": "C",
+          "cost": 1,
+          "capacity": 5
+        },
+        {
+          "id": 2,
+          "u": "B",
+          "v": "D",
+          "cost": 1,
+          "capacity": 4
+        },
+        {
+          "id": 3,
+          "u": "C",
+          "v": "D",
+          "cost": 1,
+          "capacity": 8
+        }
+      ],
+      "source": "A",
+      "sink": "D",
+      "demand": 9
+    }
+  },
+  "expect": {
+    "max_flow": 9,
+    "demand_satisfied": true,
+    "min_cut": {
+      "capacity": 9
+    }
+  }
+}

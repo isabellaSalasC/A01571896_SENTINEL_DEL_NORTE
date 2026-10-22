@@ -1,0 +1,41 @@
+{
+  "name": "matching_ejemplo_reto",
+  "request": {
+    "mode": "matching",
+    "input": {
+      "transmission1": "AABCDCBA12FFABBA",
+      "transmission2": "00BCDCBAFFABBA77",
+      "signatures": [
+        "ABBA",
+        "FF",
+        "DEAD"
+      ]
+    }
+  },
+  "expect": {
+    "results": [
+      {
+        "found": true,
+        "position": 13
+      },
+      {
+        "found": true,
+        "position": 11
+      },
+      {
+        "found": false
+      },
+      {
+        "found": true,
+        "position": 11
+      },
+      {
+        "found": true,
+        "position": 9
+      },
+      {
+        "found": false
+      }
+    ]
+  }
+}

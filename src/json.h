@@ -1,6 +1,8 @@
 #ifndef JSON_H
 #define JSON_H
 
+#include <cstdlib>
+#include <iostream>
 #include <map>
 #include <sstream>
 #include <stdexcept>
@@ -8,6 +10,19 @@
 #include <vector>
 
 using namespace std;
+
+// Imprime un error en formato JSON y termina el programa sin usar excepciones.
+inline void fallar(const string& mensaje) {
+    string escapado;
+    for (size_t i = 0; i < mensaje.size(); ++i) {
+        if (mensaje[i] == 34 || mensaje[i] == 92) {
+            escapado += static_cast<char>(92);
+        }
+        escapado += mensaje[i];
+    }
+    cout << "{\"error\":\"" << escapado << "\"}" << endl;
+    exit(1);
+}
 
 // Valor JSON genérico: puede ser nulo, booleano, número, texto, lista u objeto.
 struct ValorJson {
@@ -29,7 +44,9 @@ struct ValorJson {
     }
 
     const ValorJson& operator[](const string& clave) const {
-        return objeto.at(clave);
+        auto it = objeto.find(clave);
+        if (it == objeto.end()) fallar("Falta la clave '" + clave + "' en el JSON");
+        return it->second;
     }
 };
 
@@ -46,7 +63,7 @@ private:
     void esperar(char c) {
         saltarEspacios();
         if (pos >= texto.size() || texto[pos] != c) {
-            throw runtime_error(string("JSON invalido: se esperaba '") + c + "'");
+            fallar(string("JSON invalido: se esperaba '") + c + "'");
         }
         ++pos;
     }
@@ -72,7 +89,7 @@ private:
 
     ValorJson leerValor() {
         saltarEspacios();
-        if (pos >= texto.size()) throw runtime_error("JSON invalido: fin inesperado");
+        if (pos >= texto.size()) fallar("JSON invalido: fin inesperado");
 
         ValorJson valor;
         char c = texto[pos];
@@ -118,7 +135,11 @@ private:
         } else {
             size_t usados = 0;
             valor.tipo = ValorJson::NUMERO;
-            valor.numero = stod(texto.substr(pos, 40), &usados);
+            string trozo = texto.substr(pos, 40);
+            char* fin = nullptr;
+            valor.numero = strtod(trozo.c_str(), &fin);
+            usados = fin - trozo.c_str();
+            if (usados == 0) fallar("JSON invalido: valor inesperado");
             pos += usados;
         }
         return valor;

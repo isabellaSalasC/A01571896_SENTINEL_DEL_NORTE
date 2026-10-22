@@ -1,0 +1,2753 @@
+{
+ "id": "geant",
+ "name": "SNDlib geant · 22 nodos · 36 enlaces",
+ "description": "Datos reales de SNDlib (app/data/geant.txt). Costo = distancia geodésica en km; capacidad en Mbps (módulo del enlace); 462 demandas.",
+ "nodes": [
+  {
+   "id": "at1.at",
+   "name": "AT",
+   "lon": 16.3729,
+   "lat": 48.2091,
+   "core": true
+  },
+  {
+   "id": "be1.be",
+   "name": "BE",
+   "lon": 4.3518,
+   "lat": 50.8469,
+   "core": false
+  },
+  {
+   "id": "ch1.ch",
+   "name": "CH",
+   "lon": 6.1399,
+   "lat": 46.2038,
+   "core": false
+  },
+  {
+   "id": "cz1.cz",
+   "name": "CZ",
+   "lon": 14.4423,
+   "lat": 50.0785,
+   "core": false
+  },
+  {
+   "id": "de1.de",
+   "name": "DE",
+   "lon": 8.6842,
+   "lat": 50.1122,
+   "core": true
+  },
+  {
+   "id": "es1.es",
+   "name": "ES",
+   "lon": -3.7033,
+   "lat": 40.4167,
+   "core": false
+  },
+  {
+   "id": "fr1.fr",
+   "name": "FR",
+   "lon": 2.351,
+   "lat": 48.8566,
+   "core": true
+  },
+  {
+   "id": "gr1.gr",
+   "name": "GR",
+   "lon": 23.5808,
+   "lat": 37.9778,
+   "core": false
+  },
+  {
+   "id": "hr1.hr",
+   "name": "HR",
+   "lon": 15.9644,
+   "lat": 45.8071,
+   "core": false
+  },
+  {
+   "id": "hu1.hu",
+   "name": "HU",
+   "lon": 19.0936,
+   "lat": 47.4976,
+   "core": false
+  },
+  {
+   "id": "ie1.ie",
+   "name": "IE",
+   "lon": -6.2573,
+   "lat": 53.3416,
+   "core": false
+  },
+  {
+   "id": "il1.il",
+   "name": "IL",
+   "lon": 34.8097,
+   "lat": 32.0714,
+   "core": false
+  },
+  {
+   "id": "it1.it",
+   "name": "IT",
+   "lon": 9.19,
+   "lat": 45.4642,
+   "core": true
+  },
+  {
+   "id": "lu1.lu",
+   "name": "LU",
+   "lon": 6.1296,
+   "lat": 49.6112,
+   "core": false
+  },
+  {
+   "id": "nl1.nl",
+   "name": "NL",
+   "lon": 4.9407,
+   "lat": 52.3236,
+   "core": true
+  },
+  {
+   "id": "ny1.ny",
+   "name": "NY",
+   "lon": -73.94384,
+   "lat": 40.6698,
+   "core": false
+  },
+  {
+   "id": "pl1.pl",
+   "name": "PL",
+   "lon": 16.8874,
+   "lat": 52.3963,
+   "core": false
+  },
+  {
+   "id": "pt1.pt",
+   "name": "PT",
+   "lon": -9.1363,
+   "lat": 38.7073,
+   "core": false
+  },
+  {
+   "id": "se1.se",
+   "name": "SE",
+   "lon": 17.8742,
+   "lat": 59.3617,
+   "core": false
+  },
+  {
+   "id": "si1.si",
+   "name": "SI",
+   "lon": 14.5148,
+   "lat": 46.0574,
+   "core": false
+  },
+  {
+   "id": "sk1.sk",
+   "name": "SK",
+   "lon": 17.1297,
+   "lat": 48.1531,
+   "core": false
+  },
+  {
+   "id": "uk1.uk",
+   "name": "UK",
+   "lon": -0.1264,
+   "lat": 51.5086,
+   "core": true
+  }
+ ],
+ "edges": [
+  {
+   "u": "at1.at",
+   "v": "ch1.ch",
+   "capacity": 40000,
+   "moduleCost": 804,
+   "cost": 803.8
+  },
+  {
+   "u": "at1.at",
+   "v": "de1.de",
+   "capacity": 40000,
+   "moduleCost": 598,
+   "cost": 597.4
+  },
+  {
+   "u": "at1.at",
+   "v": "hu1.hu",
+   "capacity": 40000,
+   "moduleCost": 218,
+   "cost": 217.9
+  },
+  {
+   "u": "at1.at",
+   "v": "ny1.ny",
+   "capacity": 40000,
+   "moduleCost": 6802,
+   "cost": 6795.3
+  },
+  {
+   "u": "at1.at",
+   "v": "si1.si",
+   "capacity": 40000,
+   "moduleCost": 277,
+   "cost": 277.5
+  },
+  {
+   "u": "be1.be",
+   "v": "fr1.fr",
+   "capacity": 40000,
+   "moduleCost": 264,
+   "cost": 263.7
+  },
+  {
+   "u": "be1.be",
+   "v": "lu1.lu",
+   "capacity": 40000,
+   "moduleCost": 186,
+   "cost": 186.7
+  },
+  {
+   "u": "be1.be",
+   "v": "nl1.nl",
+   "capacity": 40000,
+   "moduleCost": 169,
+   "cost": 169.2
+  },
+  {
+   "u": "ch1.ch",
+   "v": "fr1.fr",
+   "capacity": 40000,
+   "moduleCost": 410,
+   "cost": 409.7
+  },
+  {
+   "u": "ch1.ch",
+   "v": "it1.it",
+   "capacity": 40000,
+   "moduleCost": 250,
+   "cost": 250.2
+  },
+  {
+   "u": "cz1.cz",
+   "v": "de1.de",
+   "capacity": 40000,
+   "moduleCost": 411,
+   "cost": 410.7
+  },
+  {
+   "u": "cz1.cz",
+   "v": "pl1.pl",
+   "capacity": 40000,
+   "moduleCost": 309,
+   "cost": 308.8
+  },
+  {
+   "u": "cz1.cz",
+   "v": "sk1.sk",
+   "capacity": 40000,
+   "moduleCost": 290,
+   "cost": 289.9
+  },
+  {
+   "u": "de1.de",
+   "v": "fr1.fr",
+   "capacity": 40000,
+   "moduleCost": 478,
+   "cost": 478.2
+  },
+  {
+   "u": "de1.de",
+   "v": "gr1.gr",
+   "capacity": 40000,
+   "moduleCost": 1794,
+   "cost": 1792.8
+  },
+  {
+   "u": "de1.de",
+   "v": "ie1.ie",
+   "capacity": 40000,
+   "moduleCost": 1088,
+   "cost": 1087.5
+  },
+  {
+   "u": "de1.de",
+   "v": "it1.it",
+   "capacity": 40000,
+   "moduleCost": 518,
+   "cost": 518.2
+  },
+  {
+   "u": "de1.de",
+   "v": "nl1.nl",
+   "capacity": 40000,
+   "moduleCost": 358,
+   "cost": 358.3
+  },
+  {
+   "u": "de1.de",
+   "v": "se1.se",
+   "capacity": 40000,
+   "moduleCost": 1184,
+   "cost": 1183.2
+  },
+  {
+   "u": "es1.es",
+   "v": "fr1.fr",
+   "capacity": 40000,
+   "moduleCost": 1054,
+   "cost": 1052.8
+  },
+  {
+   "u": "es1.es",
+   "v": "it1.it",
+   "capacity": 40000,
+   "moduleCost": 1189,
+   "cost": 1188.2
+  },
+  {
+   "u": "es1.es",
+   "v": "pt1.pt",
+   "capacity": 40000,
+   "moduleCost": 503,
+   "cost": 502.9
+  },
+  {
+   "u": "fr1.fr",
+   "v": "lu1.lu",
+   "capacity": 40000,
+   "moduleCost": 287,
+   "cost": 286.9
+  },
+  {
+   "u": "fr1.fr",
+   "v": "uk1.uk",
+   "capacity": 40000,
+   "moduleCost": 343,
+   "cost": 343.6
+  },
+  {
+   "u": "gr1.gr",
+   "v": "it1.it",
+   "capacity": 40000,
+   "moduleCost": 1453,
+   "cost": 1452.3
+  },
+  {
+   "u": "hr1.hr",
+   "v": "hu1.hu",
+   "capacity": 40000,
+   "moduleCost": 304,
+   "cost": 303.9
+  },
+  {
+   "u": "hr1.hr",
+   "v": "si1.si",
+   "capacity": 40000,
+   "moduleCost": 115,
+   "cost": 115.5
+  },
+  {
+   "u": "hu1.hu",
+   "v": "sk1.sk",
+   "capacity": 40000,
+   "moduleCost": 163,
+   "cost": 163.7
+  },
+  {
+   "u": "ie1.ie",
+   "v": "uk1.uk",
+   "capacity": 40000,
+   "moduleCost": 463,
+   "cost": 462.8
+  },
+  {
+   "u": "il1.il",
+   "v": "it1.it",
+   "capacity": 40000,
+   "moduleCost": 2658,
+   "cost": 2655.7
+  },
+  {
+   "u": "il1.il",
+   "v": "nl1.nl",
+   "capacity": 40000,
+   "moduleCost": 3296,
+   "cost": 3292.8
+  },
+  {
+   "u": "nl1.nl",
+   "v": "uk1.uk",
+   "capacity": 40000,
+   "moduleCost": 359,
+   "cost": 359.1
+  },
+  {
+   "u": "ny1.ny",
+   "v": "uk1.uk",
+   "capacity": 40000,
+   "moduleCost": 5575,
+   "cost": 5569.2
+  },
+  {
+   "u": "pl1.pl",
+   "v": "se1.se",
+   "capacity": 40000,
+   "moduleCost": 777,
+   "cost": 776.9
+  },
+  {
+   "u": "pt1.pt",
+   "v": "uk1.uk",
+   "capacity": 40000,
+   "moduleCost": 1588,
+   "cost": 1586.6
+  },
+  {
+   "u": "se1.se",
+   "v": "uk1.uk",
+   "capacity": 40000,
+   "moduleCost": 1426,
+   "cost": 1424.8
+  }
+ ],
+ "tsp": {
+  "start": "at1.at"
+ },
+ "flow": {
+  "source": "ch1.ch",
+  "sink": "fr1.fr",
+  "demand": 241173
+ },
+ "voronoi": {
+  "domain": [
+   -78,
+   28,
+   39,
+   64
+  ],
+  "k": 0.656059
+ },
+ "transmissions": {
+  "t1": "AABCDCBA12FFABBA",
+  "t2": "00BCDCBAFFABBA77",
+  "signatures": [
+   "ABBA",
+   "FF",
+   "DEAD"
+  ]
+ },
+ "demands": [
+  {
+   "s": "ny1.ny",
+   "t": "il1.il",
+   "value": 3003
+  },
+  {
+   "s": "de1.de",
+   "t": "ie1.ie",
+   "value": 134
+  },
+  {
+   "s": "cz1.cz",
+   "t": "ny1.ny",
+   "value": 13138
+  },
+  {
+   "s": "hr1.hr",
+   "t": "cz1.cz",
+   "value": 135
+  },
+  {
+   "s": "lu1.lu",
+   "t": "cz1.cz",
+   "value": 14
+  },
+  {
+   "s": "de1.de",
+   "t": "hr1.hr",
+   "value": 4138
+  },
+  {
+   "s": "si1.si",
+   "t": "ie1.ie",
+   "value": 38
+  },
+  {
+   "s": "de1.de",
+   "t": "il1.il",
+   "value": 3211
+  },
+  {
+   "s": "ny1.ny",
+   "t": "nl1.nl",
+   "value": 535
+  },
+  {
+   "s": "ny1.ny",
+   "t": "se1.se",
+   "value": 5156
+  },
+  {
+   "s": "de1.de",
+   "t": "fr1.fr",
+   "value": 1205
+  },
+  {
+   "s": "be1.be",
+   "t": "at1.at",
+   "value": 46267
+  },
+  {
+   "s": "at1.at",
+   "t": "it1.it",
+   "value": 2033
+  },
+  {
+   "s": "si1.si",
+   "t": "pl1.pl",
+   "value": 269
+  },
+  {
+   "s": "ch1.ch",
+   "t": "cz1.cz",
+   "value": 7069
+  },
+  {
+   "s": "cz1.cz",
+   "t": "es1.es",
+   "value": 556
+  },
+  {
+   "s": "si1.si",
+   "t": "uk1.uk",
+   "value": 1294
+  },
+  {
+   "s": "it1.it",
+   "t": "pt1.pt",
+   "value": 1786
+  },
+  {
+   "s": "nl1.nl",
+   "t": "il1.il",
+   "value": 578
+  },
+  {
+   "s": "gr1.gr",
+   "t": "it1.it",
+   "value": 102
+  },
+  {
+   "s": "it1.it",
+   "t": "se1.se",
+   "value": 8485
+  },
+  {
+   "s": "it1.it",
+   "t": "cz1.cz",
+   "value": 160
+  },
+  {
+   "s": "at1.at",
+   "t": "nl1.nl",
+   "value": 725
+  },
+  {
+   "s": "pl1.pl",
+   "t": "be1.be",
+   "value": 710
+  },
+  {
+   "s": "be1.be",
+   "t": "uk1.uk",
+   "value": 34415
+  },
+  {
+   "s": "fr1.fr",
+   "t": "ny1.ny",
+   "value": 8677
+  },
+  {
+   "s": "ny1.ny",
+   "t": "hu1.hu",
+   "value": 1753
+  },
+  {
+   "s": "se1.se",
+   "t": "il1.il",
+   "value": 156
+  },
+  {
+   "s": "lu1.lu",
+   "t": "nl1.nl",
+   "value": 35
+  },
+  {
+   "s": "fr1.fr",
+   "t": "gr1.gr",
+   "value": 1179
+  },
+  {
+   "s": "il1.il",
+   "t": "uk1.uk",
+   "value": 779
+  },
+  {
+   "s": "ch1.ch",
+   "t": "si1.si",
+   "value": 2304
+  },
+  {
+   "s": "es1.es",
+   "t": "hr1.hr",
+   "value": 822
+  },
+  {
+   "s": "lu1.lu",
+   "t": "it1.it",
+   "value": 13
+  },
+  {
+   "s": "de1.de",
+   "t": "pl1.pl",
+   "value": 4172
+  },
+  {
+   "s": "de1.de",
+   "t": "ny1.ny",
+   "value": 3406
+  },
+  {
+   "s": "pl1.pl",
+   "t": "es1.es",
+   "value": 653
+  },
+  {
+   "s": "at1.at",
+   "t": "gr1.gr",
+   "value": 8167
+  },
+  {
+   "s": "it1.it",
+   "t": "fr1.fr",
+   "value": 2343
+  },
+  {
+   "s": "fr1.fr",
+   "t": "il1.il",
+   "value": 136
+  },
+  {
+   "s": "es1.es",
+   "t": "fr1.fr",
+   "value": 856
+  },
+  {
+   "s": "nl1.nl",
+   "t": "sk1.sk",
+   "value": 1067
+  },
+  {
+   "s": "il1.il",
+   "t": "nl1.nl",
+   "value": 85
+  },
+  {
+   "s": "lu1.lu",
+   "t": "se1.se",
+   "value": 538
+  },
+  {
+   "s": "il1.il",
+   "t": "hr1.hr",
+   "value": 14
+  },
+  {
+   "s": "lu1.lu",
+   "t": "ie1.ie",
+   "value": 35
+  },
+  {
+   "s": "gr1.gr",
+   "t": "lu1.lu",
+   "value": 8
+  },
+  {
+   "s": "be1.be",
+   "t": "pl1.pl",
+   "value": 10180
+  },
+  {
+   "s": "hu1.hu",
+   "t": "de1.de",
+   "value": 13369
+  },
+  {
+   "s": "pt1.pt",
+   "t": "pl1.pl",
+   "value": 42
+  },
+  {
+   "s": "si1.si",
+   "t": "lu1.lu",
+   "value": 4
+  },
+  {
+   "s": "il1.il",
+   "t": "ie1.ie",
+   "value": 9
+  },
+  {
+   "s": "sk1.sk",
+   "t": "pt1.pt",
+   "value": 8500
+  },
+  {
+   "s": "nl1.nl",
+   "t": "ny1.ny",
+   "value": 78
+  },
+  {
+   "s": "be1.be",
+   "t": "es1.es",
+   "value": 7141
+  },
+  {
+   "s": "hu1.hu",
+   "t": "pt1.pt",
+   "value": 70
+  },
+  {
+   "s": "it1.it",
+   "t": "at1.at",
+   "value": 2748
+  },
+  {
+   "s": "hu1.hu",
+   "t": "si1.si",
+   "value": 433
+  },
+  {
+   "s": "lu1.lu",
+   "t": "sk1.sk",
+   "value": 6
+  },
+  {
+   "s": "lu1.lu",
+   "t": "ny1.ny",
+   "value": 204
+  },
+  {
+   "s": "pl1.pl",
+   "t": "il1.il",
+   "value": 65
+  },
+  {
+   "s": "uk1.uk",
+   "t": "es1.es",
+   "value": 778
+  },
+  {
+   "s": "es1.es",
+   "t": "uk1.uk",
+   "value": 4009
+  },
+  {
+   "s": "ch1.ch",
+   "t": "ny1.ny",
+   "value": 26620
+  },
+  {
+   "s": "il1.il",
+   "t": "ny1.ny",
+   "value": 194
+  },
+  {
+   "s": "hr1.hr",
+   "t": "il1.il",
+   "value": 27
+  },
+  {
+   "s": "ie1.ie",
+   "t": "il1.il",
+   "value": 60
+  },
+  {
+   "s": "it1.it",
+   "t": "be1.be",
+   "value": 943
+  },
+  {
+   "s": "hu1.hu",
+   "t": "be1.be",
+   "value": 124
+  },
+  {
+   "s": "ie1.ie",
+   "t": "si1.si",
+   "value": 65
+  },
+  {
+   "s": "ny1.ny",
+   "t": "pl1.pl",
+   "value": 504
+  },
+  {
+   "s": "ch1.ch",
+   "t": "il1.il",
+   "value": 1937
+  },
+  {
+   "s": "ny1.ny",
+   "t": "sk1.sk",
+   "value": 336
+  },
+  {
+   "s": "pl1.pl",
+   "t": "fr1.fr",
+   "value": 2041
+  },
+  {
+   "s": "lu1.lu",
+   "t": "be1.be",
+   "value": 27
+  },
+  {
+   "s": "ny1.ny",
+   "t": "de1.de",
+   "value": 35420
+  },
+  {
+   "s": "be1.be",
+   "t": "hu1.hu",
+   "value": 1781
+  },
+  {
+   "s": "uk1.uk",
+   "t": "cz1.cz",
+   "value": 421
+  },
+  {
+   "s": "hr1.hr",
+   "t": "at1.at",
+   "value": 6304
+  },
+  {
+   "s": "at1.at",
+   "t": "ie1.ie",
+   "value": 66
+  },
+  {
+   "s": "pl1.pl",
+   "t": "at1.at",
+   "value": 59
+  },
+  {
+   "s": "es1.es",
+   "t": "ch1.ch",
+   "value": 3277
+  },
+  {
+   "s": "nl1.nl",
+   "t": "de1.de",
+   "value": 21941
+  },
+  {
+   "s": "fr1.fr",
+   "t": "ie1.ie",
+   "value": 435
+  },
+  {
+   "s": "ny1.ny",
+   "t": "hr1.hr",
+   "value": 836
+  },
+  {
+   "s": "si1.si",
+   "t": "pt1.pt",
+   "value": 52
+  },
+  {
+   "s": "de1.de",
+   "t": "ch1.ch",
+   "value": 990
+  },
+  {
+   "s": "lu1.lu",
+   "t": "gr1.gr",
+   "value": 7
+  },
+  {
+   "s": "hr1.hr",
+   "t": "gr1.gr",
+   "value": 109
+  },
+  {
+   "s": "uk1.uk",
+   "t": "ie1.ie",
+   "value": 10
+  },
+  {
+   "s": "at1.at",
+   "t": "si1.si",
+   "value": 42759
+  },
+  {
+   "s": "uk1.uk",
+   "t": "gr1.gr",
+   "value": 161
+  },
+  {
+   "s": "pl1.pl",
+   "t": "si1.si",
+   "value": 1333
+  },
+  {
+   "s": "it1.it",
+   "t": "si1.si",
+   "value": 1027
+  },
+  {
+   "s": "ch1.ch",
+   "t": "ie1.ie",
+   "value": 273
+  },
+  {
+   "s": "lu1.lu",
+   "t": "uk1.uk",
+   "value": 3151
+  },
+  {
+   "s": "es1.es",
+   "t": "pl1.pl",
+   "value": 240
+  },
+  {
+   "s": "hr1.hr",
+   "t": "nl1.nl",
+   "value": 292
+  },
+  {
+   "s": "ie1.ie",
+   "t": "es1.es",
+   "value": 950
+  },
+  {
+   "s": "be1.be",
+   "t": "de1.de",
+   "value": 35565
+  },
+  {
+   "s": "uk1.uk",
+   "t": "lu1.lu",
+   "value": 2823
+  },
+  {
+   "s": "ie1.ie",
+   "t": "ch1.ch",
+   "value": 403
+  },
+  {
+   "s": "sk1.sk",
+   "t": "pl1.pl",
+   "value": 5
+  },
+  {
+   "s": "se1.se",
+   "t": "sk1.sk",
+   "value": 270
+  },
+  {
+   "s": "lu1.lu",
+   "t": "pt1.pt",
+   "value": 23
+  },
+  {
+   "s": "gr1.gr",
+   "t": "ie1.ie",
+   "value": 78
+  },
+  {
+   "s": "be1.be",
+   "t": "il1.il",
+   "value": 639
+  },
+  {
+   "s": "il1.il",
+   "t": "it1.it",
+   "value": 902
+  },
+  {
+   "s": "ny1.ny",
+   "t": "it1.it",
+   "value": 2164
+  },
+  {
+   "s": "it1.it",
+   "t": "gr1.gr",
+   "value": 3046
+  },
+  {
+   "s": "ny1.ny",
+   "t": "ie1.ie",
+   "value": 136
+  },
+  {
+   "s": "gr1.gr",
+   "t": "sk1.sk",
+   "value": 239
+  },
+  {
+   "s": "uk1.uk",
+   "t": "it1.it",
+   "value": 586
+  },
+  {
+   "s": "lu1.lu",
+   "t": "il1.il",
+   "value": 13
+  },
+  {
+   "s": "fr1.fr",
+   "t": "be1.be",
+   "value": 2309
+  },
+  {
+   "s": "uk1.uk",
+   "t": "at1.at",
+   "value": 165
+  },
+  {
+   "s": "de1.de",
+   "t": "si1.si",
+   "value": 15336
+  },
+  {
+   "s": "ny1.ny",
+   "t": "uk1.uk",
+   "value": 14310
+  },
+  {
+   "s": "be1.be",
+   "t": "ny1.ny",
+   "value": 117644
+  },
+  {
+   "s": "nl1.nl",
+   "t": "hr1.hr",
+   "value": 1056
+  },
+  {
+   "s": "si1.si",
+   "t": "hu1.hu",
+   "value": 4941
+  },
+  {
+   "s": "pt1.pt",
+   "t": "si1.si",
+   "value": 41
+  },
+  {
+   "s": "cz1.cz",
+   "t": "il1.il",
+   "value": 245
+  },
+  {
+   "s": "il1.il",
+   "t": "sk1.sk",
+   "value": 24
+  },
+  {
+   "s": "gr1.gr",
+   "t": "es1.es",
+   "value": 111
+  },
+  {
+   "s": "se1.se",
+   "t": "lu1.lu",
+   "value": 201
+  },
+  {
+   "s": "si1.si",
+   "t": "il1.il",
+   "value": 16
+  },
+  {
+   "s": "se1.se",
+   "t": "it1.it",
+   "value": 449
+  },
+  {
+   "s": "hu1.hu",
+   "t": "ch1.ch",
+   "value": 389
+  },
+  {
+   "s": "gr1.gr",
+   "t": "pt1.pt",
+   "value": 58
+  },
+  {
+   "s": "at1.at",
+   "t": "ny1.ny",
+   "value": 514
+  },
+  {
+   "s": "ie1.ie",
+   "t": "hu1.hu",
+   "value": 689
+  },
+  {
+   "s": "de1.de",
+   "t": "at1.at",
+   "value": 1741
+  },
+  {
+   "s": "gr1.gr",
+   "t": "ch1.ch",
+   "value": 549
+  },
+  {
+   "s": "se1.se",
+   "t": "ie1.ie",
+   "value": 231
+  },
+  {
+   "s": "de1.de",
+   "t": "be1.be",
+   "value": 685
+  },
+  {
+   "s": "gr1.gr",
+   "t": "be1.be",
+   "value": 208
+  },
+  {
+   "s": "ie1.ie",
+   "t": "pl1.pl",
+   "value": 1801
+  },
+  {
+   "s": "gr1.gr",
+   "t": "nl1.nl",
+   "value": 287
+  },
+  {
+   "s": "si1.si",
+   "t": "ch1.ch",
+   "value": 634
+  },
+  {
+   "s": "il1.il",
+   "t": "fr1.fr",
+   "value": 110
+  },
+  {
+   "s": "hr1.hr",
+   "t": "ie1.ie",
+   "value": 83
+  },
+  {
+   "s": "hu1.hu",
+   "t": "se1.se",
+   "value": 4067
+  },
+  {
+   "s": "fr1.fr",
+   "t": "pl1.pl",
+   "value": 1298
+  },
+  {
+   "s": "gr1.gr",
+   "t": "ny1.ny",
+   "value": 149
+  },
+  {
+   "s": "pl1.pl",
+   "t": "hr1.hr",
+   "value": 3325
+  },
+  {
+   "s": "se1.se",
+   "t": "hr1.hr",
+   "value": 568
+  },
+  {
+   "s": "ie1.ie",
+   "t": "de1.de",
+   "value": 44044
+  },
+  {
+   "s": "hr1.hr",
+   "t": "pt1.pt",
+   "value": 46
+  },
+  {
+   "s": "it1.it",
+   "t": "lu1.lu",
+   "value": 29
+  },
+  {
+   "s": "nl1.nl",
+   "t": "fr1.fr",
+   "value": 2834
+  },
+  {
+   "s": "it1.it",
+   "t": "de1.de",
+   "value": 11963
+  },
+  {
+   "s": "gr1.gr",
+   "t": "si1.si",
+   "value": 202
+  },
+  {
+   "s": "il1.il",
+   "t": "se1.se",
+   "value": 1069
+  },
+  {
+   "s": "nl1.nl",
+   "t": "pl1.pl",
+   "value": 1913
+  },
+  {
+   "s": "at1.at",
+   "t": "es1.es",
+   "value": 1258
+  },
+  {
+   "s": "es1.es",
+   "t": "ie1.ie",
+   "value": 81
+  },
+  {
+   "s": "pl1.pl",
+   "t": "sk1.sk",
+   "value": 25
+  },
+  {
+   "s": "it1.it",
+   "t": "hr1.hr",
+   "value": 177
+  },
+  {
+   "s": "sk1.sk",
+   "t": "ie1.ie",
+   "value": 63
+  },
+  {
+   "s": "ch1.ch",
+   "t": "se1.se",
+   "value": 95143
+  },
+  {
+   "s": "se1.se",
+   "t": "pt1.pt",
+   "value": 5993
+  },
+  {
+   "s": "pt1.pt",
+   "t": "at1.at",
+   "value": 55
+  },
+  {
+   "s": "at1.at",
+   "t": "lu1.lu",
+   "value": 71
+  },
+  {
+   "s": "at1.at",
+   "t": "de1.de",
+   "value": 13150
+  },
+  {
+   "s": "uk1.uk",
+   "t": "hu1.hu",
+   "value": 234
+  },
+  {
+   "s": "it1.it",
+   "t": "il1.il",
+   "value": 642
+  },
+  {
+   "s": "be1.be",
+   "t": "nl1.nl",
+   "value": 40325
+  },
+  {
+   "s": "uk1.uk",
+   "t": "ch1.ch",
+   "value": 1818
+  },
+  {
+   "s": "ch1.ch",
+   "t": "pl1.pl",
+   "value": 20071
+  },
+  {
+   "s": "se1.se",
+   "t": "ny1.ny",
+   "value": 1984
+  },
+  {
+   "s": "at1.at",
+   "t": "il1.il",
+   "value": 788
+  },
+  {
+   "s": "hr1.hr",
+   "t": "hu1.hu",
+   "value": 14153
+  },
+  {
+   "s": "at1.at",
+   "t": "fr1.fr",
+   "value": 247
+  },
+  {
+   "s": "hu1.hu",
+   "t": "uk1.uk",
+   "value": 1543
+  },
+  {
+   "s": "lu1.lu",
+   "t": "de1.de",
+   "value": 14569
+  },
+  {
+   "s": "gr1.gr",
+   "t": "hu1.hu",
+   "value": 1894
+  },
+  {
+   "s": "it1.it",
+   "t": "ch1.ch",
+   "value": 5358
+  },
+  {
+   "s": "hu1.hu",
+   "t": "at1.at",
+   "value": 4291
+  },
+  {
+   "s": "lu1.lu",
+   "t": "hr1.hr",
+   "value": 5
+  },
+  {
+   "s": "be1.be",
+   "t": "fr1.fr",
+   "value": 115637
+  },
+  {
+   "s": "ch1.ch",
+   "t": "lu1.lu",
+   "value": 217
+  },
+  {
+   "s": "it1.it",
+   "t": "sk1.sk",
+   "value": 1330
+  },
+  {
+   "s": "fr1.fr",
+   "t": "it1.it",
+   "value": 2316
+  },
+  {
+   "s": "it1.it",
+   "t": "ny1.ny",
+   "value": 12432
+  },
+  {
+   "s": "uk1.uk",
+   "t": "ny1.ny",
+   "value": 2176
+  },
+  {
+   "s": "hu1.hu",
+   "t": "lu1.lu",
+   "value": 16
+  },
+  {
+   "s": "pt1.pt",
+   "t": "fr1.fr",
+   "value": 99
+  },
+  {
+   "s": "ch1.ch",
+   "t": "at1.at",
+   "value": 87337
+  },
+  {
+   "s": "fr1.fr",
+   "t": "cz1.cz",
+   "value": 2270
+  },
+  {
+   "s": "ny1.ny",
+   "t": "es1.es",
+   "value": 1581
+  },
+  {
+   "s": "se1.se",
+   "t": "be1.be",
+   "value": 504
+  },
+  {
+   "s": "hu1.hu",
+   "t": "fr1.fr",
+   "value": 147
+  },
+  {
+   "s": "si1.si",
+   "t": "ny1.ny",
+   "value": 149
+  },
+  {
+   "s": "ny1.ny",
+   "t": "pt1.pt",
+   "value": 263
+  },
+  {
+   "s": "uk1.uk",
+   "t": "il1.il",
+   "value": 1049
+  },
+  {
+   "s": "cz1.cz",
+   "t": "se1.se",
+   "value": 27184
+  },
+  {
+   "s": "nl1.nl",
+   "t": "at1.at",
+   "value": 1438
+  },
+  {
+   "s": "ch1.ch",
+   "t": "fr1.fr",
+   "value": 241173
+  },
+  {
+   "s": "lu1.lu",
+   "t": "pl1.pl",
+   "value": 19
+  },
+  {
+   "s": "at1.at",
+   "t": "ch1.ch",
+   "value": 19621
+  },
+  {
+   "s": "nl1.nl",
+   "t": "se1.se",
+   "value": 7913
+  },
+  {
+   "s": "es1.es",
+   "t": "ny1.ny",
+   "value": 1415
+  },
+  {
+   "s": "hu1.hu",
+   "t": "nl1.nl",
+   "value": 384
+  },
+  {
+   "s": "hu1.hu",
+   "t": "ie1.ie",
+   "value": 61
+  },
+  {
+   "s": "nl1.nl",
+   "t": "ch1.ch",
+   "value": 1325
+  },
+  {
+   "s": "es1.es",
+   "t": "cz1.cz",
+   "value": 767
+  },
+  {
+   "s": "sk1.sk",
+   "t": "at1.at",
+   "value": 234
+  },
+  {
+   "s": "at1.at",
+   "t": "cz1.cz",
+   "value": 1
+  },
+  {
+   "s": "gr1.gr",
+   "t": "de1.de",
+   "value": 33145
+  },
+  {
+   "s": "pt1.pt",
+   "t": "hr1.hr",
+   "value": 29
+  },
+  {
+   "s": "il1.il",
+   "t": "be1.be",
+   "value": 23
+  },
+  {
+   "s": "nl1.nl",
+   "t": "gr1.gr",
+   "value": 700
+  },
+  {
+   "s": "sk1.sk",
+   "t": "uk1.uk",
+   "value": 526
+  },
+  {
+   "s": "be1.be",
+   "t": "se1.se",
+   "value": 86347
+  },
+  {
+   "s": "es1.es",
+   "t": "it1.it",
+   "value": 4601
+  },
+  {
+   "s": "si1.si",
+   "t": "se1.se",
+   "value": 2964
+  },
+  {
+   "s": "de1.de",
+   "t": "nl1.nl",
+   "value": 1931
+  },
+  {
+   "s": "il1.il",
+   "t": "cz1.cz",
+   "value": 31
+  },
+  {
+   "s": "hr1.hr",
+   "t": "ny1.ny",
+   "value": 104
+  },
+  {
+   "s": "fr1.fr",
+   "t": "lu1.lu",
+   "value": 108
+  },
+  {
+   "s": "hr1.hr",
+   "t": "pl1.pl",
+   "value": 84
+  },
+  {
+   "s": "ie1.ie",
+   "t": "sk1.sk",
+   "value": 114
+  },
+  {
+   "s": "pt1.pt",
+   "t": "ny1.ny",
+   "value": 63
+  },
+  {
+   "s": "sk1.sk",
+   "t": "ch1.ch",
+   "value": 822
+  },
+  {
+   "s": "fr1.fr",
+   "t": "pt1.pt",
+   "value": 279
+  },
+  {
+   "s": "hu1.hu",
+   "t": "hr1.hr",
+   "value": 6274
+  },
+  {
+   "s": "cz1.cz",
+   "t": "hr1.hr",
+   "value": 5791
+  },
+  {
+   "s": "nl1.nl",
+   "t": "it1.it",
+   "value": 686
+  },
+  {
+   "s": "at1.at",
+   "t": "se1.se",
+   "value": 50905
+  },
+  {
+   "s": "de1.de",
+   "t": "gr1.gr",
+   "value": 6042
+  },
+  {
+   "s": "es1.es",
+   "t": "pt1.pt",
+   "value": 1012
+  },
+  {
+   "s": "pl1.pl",
+   "t": "ie1.ie",
+   "value": 165
+  },
+  {
+   "s": "ie1.ie",
+   "t": "ny1.ny",
+   "value": 3359
+  },
+  {
+   "s": "ny1.ny",
+   "t": "cz1.cz",
+   "value": 1004
+  },
+  {
+   "s": "de1.de",
+   "t": "pt1.pt",
+   "value": 954
+  },
+  {
+   "s": "nl1.nl",
+   "t": "es1.es",
+   "value": 2753
+  },
+  {
+   "s": "pl1.pl",
+   "t": "nl1.nl",
+   "value": 6601
+  },
+  {
+   "s": "be1.be",
+   "t": "it1.it",
+   "value": 3182
+  },
+  {
+   "s": "uk1.uk",
+   "t": "sk1.sk",
+   "value": 162
+  },
+  {
+   "s": "at1.at",
+   "t": "hr1.hr",
+   "value": 43423
+  },
+  {
+   "s": "de1.de",
+   "t": "lu1.lu",
+   "value": 1643
+  },
+  {
+   "s": "es1.es",
+   "t": "gr1.gr",
+   "value": 221
+  },
+  {
+   "s": "be1.be",
+   "t": "ch1.ch",
+   "value": 14415
+  },
+  {
+   "s": "sk1.sk",
+   "t": "hu1.hu",
+   "value": 32556
+  },
+  {
+   "s": "pl1.pl",
+   "t": "hu1.hu",
+   "value": 1758
+  },
+  {
+   "s": "de1.de",
+   "t": "it1.it",
+   "value": 1247
+  },
+  {
+   "s": "il1.il",
+   "t": "pt1.pt",
+   "value": 36
+  },
+  {
+   "s": "sk1.sk",
+   "t": "hr1.hr",
+   "value": 3660
+  },
+  {
+   "s": "pl1.pl",
+   "t": "uk1.uk",
+   "value": 2089
+  },
+  {
+   "s": "lu1.lu",
+   "t": "fr1.fr",
+   "value": 191
+  },
+  {
+   "s": "it1.it",
+   "t": "es1.es",
+   "value": 1241
+  },
+  {
+   "s": "fr1.fr",
+   "t": "sk1.sk",
+   "value": 210
+  },
+  {
+   "s": "gr1.gr",
+   "t": "il1.il",
+   "value": 66
+  },
+  {
+   "s": "ch1.ch",
+   "t": "sk1.sk",
+   "value": 15078
+  },
+  {
+   "s": "nl1.nl",
+   "t": "ie1.ie",
+   "value": 427
+  },
+  {
+   "s": "ch1.ch",
+   "t": "gr1.gr",
+   "value": 822
+  },
+  {
+   "s": "de1.de",
+   "t": "se1.se",
+   "value": 17732
+  },
+  {
+   "s": "pt1.pt",
+   "t": "de1.de",
+   "value": 4611
+  },
+  {
+   "s": "il1.il",
+   "t": "es1.es",
+   "value": 57
+  },
+  {
+   "s": "ny1.ny",
+   "t": "fr1.fr",
+   "value": 30728
+  },
+  {
+   "s": "sk1.sk",
+   "t": "ny1.ny",
+   "value": 4113
+  },
+  {
+   "s": "sk1.sk",
+   "t": "gr1.gr",
+   "value": 213
+  },
+  {
+   "s": "gr1.gr",
+   "t": "fr1.fr",
+   "value": 90
+  },
+  {
+   "s": "fr1.fr",
+   "t": "hr1.hr",
+   "value": 334
+  },
+  {
+   "s": "be1.be",
+   "t": "ie1.ie",
+   "value": 788
+  },
+  {
+   "s": "nl1.nl",
+   "t": "hu1.hu",
+   "value": 1975
+  },
+  {
+   "s": "lu1.lu",
+   "t": "si1.si",
+   "value": 11
+  },
+  {
+   "s": "ch1.ch",
+   "t": "pt1.pt",
+   "value": 65328
+  },
+  {
+   "s": "es1.es",
+   "t": "lu1.lu",
+   "value": 33
+  },
+  {
+   "s": "uk1.uk",
+   "t": "fr1.fr",
+   "value": 638
+  },
+  {
+   "s": "uk1.uk",
+   "t": "pt1.pt",
+   "value": 9291
+  },
+  {
+   "s": "si1.si",
+   "t": "de1.de",
+   "value": 21227
+  },
+  {
+   "s": "be1.be",
+   "t": "pt1.pt",
+   "value": 3838
+  },
+  {
+   "s": "be1.be",
+   "t": "si1.si",
+   "value": 1338
+  },
+  {
+   "s": "fr1.fr",
+   "t": "es1.es",
+   "value": 3183
+  },
+  {
+   "s": "gr1.gr",
+   "t": "uk1.uk",
+   "value": 3282
+  },
+  {
+   "s": "pl1.pl",
+   "t": "pt1.pt",
+   "value": 739
+  },
+  {
+   "s": "il1.il",
+   "t": "hu1.hu",
+   "value": 550
+  },
+  {
+   "s": "gr1.gr",
+   "t": "hr1.hr",
+   "value": 92
+  },
+  {
+   "s": "pl1.pl",
+   "t": "it1.it",
+   "value": 111
+  },
+  {
+   "s": "fr1.fr",
+   "t": "nl1.nl",
+   "value": 813
+  },
+  {
+   "s": "sk1.sk",
+   "t": "nl1.nl",
+   "value": 14001
+  },
+  {
+   "s": "cz1.cz",
+   "t": "nl1.nl",
+   "value": 8444
+  },
+  {
+   "s": "ie1.ie",
+   "t": "uk1.uk",
+   "value": 312
+  },
+  {
+   "s": "nl1.nl",
+   "t": "uk1.uk",
+   "value": 11285
+  },
+  {
+   "s": "si1.si",
+   "t": "hr1.hr",
+   "value": 515
+  },
+  {
+   "s": "ny1.ny",
+   "t": "lu1.lu",
+   "value": 23
+  },
+  {
+   "s": "gr1.gr",
+   "t": "se1.se",
+   "value": 4303
+  },
+  {
+   "s": "pl1.pl",
+   "t": "cz1.cz",
+   "value": 84
+  },
+  {
+   "s": "pl1.pl",
+   "t": "se1.se",
+   "value": 20305
+  },
+  {
+   "s": "ie1.ie",
+   "t": "at1.at",
+   "value": 2096
+  },
+  {
+   "s": "ch1.ch",
+   "t": "be1.be",
+   "value": 11740
+  },
+  {
+   "s": "si1.si",
+   "t": "sk1.sk",
+   "value": 158
+  },
+  {
+   "s": "il1.il",
+   "t": "at1.at",
+   "value": 1453
+  },
+  {
+   "s": "hr1.hr",
+   "t": "lu1.lu",
+   "value": 30
+  },
+  {
+   "s": "pl1.pl",
+   "t": "lu1.lu",
+   "value": 1087
+  },
+  {
+   "s": "de1.de",
+   "t": "sk1.sk",
+   "value": 226
+  },
+  {
+   "s": "nl1.nl",
+   "t": "si1.si",
+   "value": 872
+  },
+  {
+   "s": "hr1.hr",
+   "t": "de1.de",
+   "value": 22535
+  },
+  {
+   "s": "fr1.fr",
+   "t": "ch1.ch",
+   "value": 15547
+  },
+  {
+   "s": "ny1.ny",
+   "t": "at1.at",
+   "value": 2117
+  },
+  {
+   "s": "ie1.ie",
+   "t": "it1.it",
+   "value": 436
+  },
+  {
+   "s": "lu1.lu",
+   "t": "ch1.ch",
+   "value": 394
+  },
+  {
+   "s": "si1.si",
+   "t": "nl1.nl",
+   "value": 386
+  },
+  {
+   "s": "be1.be",
+   "t": "cz1.cz",
+   "value": 3804
+  },
+  {
+   "s": "lu1.lu",
+   "t": "es1.es",
+   "value": 43
+  },
+  {
+   "s": "hu1.hu",
+   "t": "ny1.ny",
+   "value": 243
+  },
+  {
+   "s": "nl1.nl",
+   "t": "cz1.cz",
+   "value": 3275
+  },
+  {
+   "s": "se1.se",
+   "t": "at1.at",
+   "value": 609
+  },
+  {
+   "s": "ie1.ie",
+   "t": "gr1.gr",
+   "value": 64
+  },
+  {
+   "s": "cz1.cz",
+   "t": "hu1.hu",
+   "value": 4181
+  },
+  {
+   "s": "pt1.pt",
+   "t": "hu1.hu",
+   "value": 889
+  },
+  {
+   "s": "se1.se",
+   "t": "es1.es",
+   "value": 884
+  },
+  {
+   "s": "uk1.uk",
+   "t": "hr1.hr",
+   "value": 355
+  },
+  {
+   "s": "il1.il",
+   "t": "ch1.ch",
+   "value": 203
+  },
+  {
+   "s": "fr1.fr",
+   "t": "uk1.uk",
+   "value": 5980
+  },
+  {
+   "s": "pl1.pl",
+   "t": "de1.de",
+   "value": 14075
+  },
+  {
+   "s": "sk1.sk",
+   "t": "se1.se",
+   "value": 9050
+  },
+  {
+   "s": "hr1.hr",
+   "t": "es1.es",
+   "value": 112
+  },
+  {
+   "s": "hu1.hu",
+   "t": "sk1.sk",
+   "value": 359
+  },
+  {
+   "s": "si1.si",
+   "t": "cz1.cz",
+   "value": 243
+  },
+  {
+   "s": "de1.de",
+   "t": "hu1.hu",
+   "value": 8389
+  },
+  {
+   "s": "es1.es",
+   "t": "se1.se",
+   "value": 2958
+  },
+  {
+   "s": "ie1.ie",
+   "t": "pt1.pt",
+   "value": 3027
+  },
+  {
+   "s": "il1.il",
+   "t": "lu1.lu",
+   "value": 1
+  },
+  {
+   "s": "ie1.ie",
+   "t": "lu1.lu",
+   "value": 1026
+  },
+  {
+   "s": "pl1.pl",
+   "t": "ch1.ch",
+   "value": 1639
+  },
+  {
+   "s": "es1.es",
+   "t": "be1.be",
+   "value": 547
+  },
+  {
+   "s": "si1.si",
+   "t": "be1.be",
+   "value": 175
+  },
+  {
+   "s": "gr1.gr",
+   "t": "pl1.pl",
+   "value": 168
+  },
+  {
+   "s": "se1.se",
+   "t": "cz1.cz",
+   "value": 578
+  },
+  {
+   "s": "it1.it",
+   "t": "pl1.pl",
+   "value": 734
+  },
+  {
+   "s": "sk1.sk",
+   "t": "fr1.fr",
+   "value": 1157
+  },
+  {
+   "s": "lu1.lu",
+   "t": "at1.at",
+   "value": 60
+  },
+  {
+   "s": "nl1.nl",
+   "t": "be1.be",
+   "value": 2212
+  },
+  {
+   "s": "be1.be",
+   "t": "lu1.lu",
+   "value": 1514
+  },
+  {
+   "s": "uk1.uk",
+   "t": "be1.be",
+   "value": 281
+  },
+  {
+   "s": "it1.it",
+   "t": "ie1.ie",
+   "value": 88
+  },
+  {
+   "s": "si1.si",
+   "t": "fr1.fr",
+   "value": 41
+  },
+  {
+   "s": "se1.se",
+   "t": "fr1.fr",
+   "value": 473
+  },
+  {
+   "s": "gr1.gr",
+   "t": "at1.at",
+   "value": 2924
+  },
+  {
+   "s": "hu1.hu",
+   "t": "cz1.cz",
+   "value": 346
+  },
+  {
+   "s": "cz1.cz",
+   "t": "ch1.ch",
+   "value": 1118
+  },
+  {
+   "s": "ny1.ny",
+   "t": "be1.be",
+   "value": 1092
+  },
+  {
+   "s": "pl1.pl",
+   "t": "ny1.ny",
+   "value": 3882
+  },
+  {
+   "s": "ie1.ie",
+   "t": "nl1.nl",
+   "value": 423
+  },
+  {
+   "s": "uk1.uk",
+   "t": "pl1.pl",
+   "value": 198
+  },
+  {
+   "s": "si1.si",
+   "t": "at1.at",
+   "value": 5543
+  },
+  {
+   "s": "cz1.cz",
+   "t": "be1.be",
+   "value": 216
+  },
+  {
+   "s": "fr1.fr",
+   "t": "se1.se",
+   "value": 6944
+  },
+  {
+   "s": "cz1.cz",
+   "t": "uk1.uk",
+   "value": 7859
+  },
+  {
+   "s": "hu1.hu",
+   "t": "il1.il",
+   "value": 55
+  },
+  {
+   "s": "es1.es",
+   "t": "il1.il",
+   "value": 699
+  },
+  {
+   "s": "cz1.cz",
+   "t": "sk1.sk",
+   "value": 53
+  },
+  {
+   "s": "at1.at",
+   "t": "pt1.pt",
+   "value": 307
+  },
+  {
+   "s": "pt1.pt",
+   "t": "lu1.lu",
+   "value": 1
+  },
+  {
+   "s": "cz1.cz",
+   "t": "si1.si",
+   "value": 5638
+  },
+  {
+   "s": "pt1.pt",
+   "t": "uk1.uk",
+   "value": 4069
+  },
+  {
+   "s": "uk1.uk",
+   "t": "se1.se",
+   "value": 15342
+  },
+  {
+   "s": "es1.es",
+   "t": "de1.de",
+   "value": 14734
+  },
+  {
+   "s": "ie1.ie",
+   "t": "fr1.fr",
+   "value": 1853
+  },
+  {
+   "s": "se1.se",
+   "t": "gr1.gr",
+   "value": 167
+  },
+  {
+   "s": "ch1.ch",
+   "t": "de1.de",
+   "value": 205332
+  },
+  {
+   "s": "fr1.fr",
+   "t": "at1.at",
+   "value": 2775
+  },
+  {
+   "s": "pt1.pt",
+   "t": "be1.be",
+   "value": 95
+  },
+  {
+   "s": "ny1.ny",
+   "t": "si1.si",
+   "value": 264
+  },
+  {
+   "s": "es1.es",
+   "t": "at1.at",
+   "value": 732
+  },
+  {
+   "s": "pl1.pl",
+   "t": "gr1.gr",
+   "value": 249
+  },
+  {
+   "s": "at1.at",
+   "t": "uk1.uk",
+   "value": 666
+  },
+  {
+   "s": "hr1.hr",
+   "t": "si1.si",
+   "value": 285
+  },
+  {
+   "s": "cz1.cz",
+   "t": "pl1.pl",
+   "value": 175
+  },
+  {
+   "s": "be1.be",
+   "t": "gr1.gr",
+   "value": 1025
+  },
+  {
+   "s": "pt1.pt",
+   "t": "ch1.ch",
+   "value": 116
+  },
+  {
+   "s": "ch1.ch",
+   "t": "es1.es",
+   "value": 71045
+  },
+  {
+   "s": "pt1.pt",
+   "t": "es1.es",
+   "value": 181
+  },
+  {
+   "s": "sk1.sk",
+   "t": "il1.il",
+   "value": 57
+  },
+  {
+   "s": "cz1.cz",
+   "t": "at1.at",
+   "value": 321
+  },
+  {
+   "s": "lu1.lu",
+   "t": "hu1.hu",
+   "value": 513
+  },
+  {
+   "s": "cz1.cz",
+   "t": "de1.de",
+   "value": 12912
+  },
+  {
+   "s": "hr1.hr",
+   "t": "sk1.sk",
+   "value": 189
+  },
+  {
+   "s": "cz1.cz",
+   "t": "ie1.ie",
+   "value": 161
+  },
+  {
+   "s": "hr1.hr",
+   "t": "ch1.ch",
+   "value": 544
+  },
+  {
+   "s": "at1.at",
+   "t": "be1.be",
+   "value": 1799
+  },
+  {
+   "s": "sk1.sk",
+   "t": "cz1.cz",
+   "value": 135
+  },
+  {
+   "s": "hu1.hu",
+   "t": "gr1.gr",
+   "value": 113
+  },
+  {
+   "s": "de1.de",
+   "t": "cz1.cz",
+   "value": 571
+  },
+  {
+   "s": "it1.it",
+   "t": "nl1.nl",
+   "value": 3183
+  },
+  {
+   "s": "se1.se",
+   "t": "si1.si",
+   "value": 876
+  },
+  {
+   "s": "ie1.ie",
+   "t": "be1.be",
+   "value": 6840
+  },
+  {
+   "s": "si1.si",
+   "t": "es1.es",
+   "value": 102
+  },
+  {
+   "s": "se1.se",
+   "t": "uk1.uk",
+   "value": 4442
+  },
+  {
+   "s": "hr1.hr",
+   "t": "be1.be",
+   "value": 43
+  },
+  {
+   "s": "pt1.pt",
+   "t": "ie1.ie",
+   "value": 77
+  },
+  {
+   "s": "il1.il",
+   "t": "gr1.gr",
+   "value": 25
+  },
+  {
+   "s": "pt1.pt",
+   "t": "cz1.cz",
+   "value": 100
+  },
+  {
+   "s": "sk1.sk",
+   "t": "si1.si",
+   "value": 1953
+  },
+  {
+   "s": "be1.be",
+   "t": "hr1.hr",
+   "value": 323
+  },
+  {
+   "s": "sk1.sk",
+   "t": "es1.es",
+   "value": 2256
+  },
+  {
+   "s": "hr1.hr",
+   "t": "se1.se",
+   "value": 2920
+  },
+  {
+   "s": "se1.se",
+   "t": "nl1.nl",
+   "value": 3179
+  },
+  {
+   "s": "ch1.ch",
+   "t": "nl1.nl",
+   "value": 25837
+  },
+  {
+   "s": "nl1.nl",
+   "t": "pt1.pt",
+   "value": 658
+  },
+  {
+   "s": "pt1.pt",
+   "t": "it1.it",
+   "value": 485
+  },
+  {
+   "s": "cz1.cz",
+   "t": "gr1.gr",
+   "value": 147
+  },
+  {
+   "s": "de1.de",
+   "t": "es1.es",
+   "value": 3005
+  },
+  {
+   "s": "hr1.hr",
+   "t": "it1.it",
+   "value": 107
+  },
+  {
+   "s": "sk1.sk",
+   "t": "be1.be",
+   "value": 102
+  },
+  {
+   "s": "si1.si",
+   "t": "it1.it",
+   "value": 169
+  },
+  {
+   "s": "cz1.cz",
+   "t": "fr1.fr",
+   "value": 7736
+  },
+  {
+   "s": "se1.se",
+   "t": "pl1.pl",
+   "value": 895
+  },
+  {
+   "s": "pt1.pt",
+   "t": "se1.se",
+   "value": 15117
+  },
+  {
+   "s": "uk1.uk",
+   "t": "de1.de",
+   "value": 5754
+  },
+  {
+   "s": "hu1.hu",
+   "t": "es1.es",
+   "value": 451
+  },
+  {
+   "s": "ch1.ch",
+   "t": "hr1.hr",
+   "value": 49148
+  },
+  {
+   "s": "gr1.gr",
+   "t": "cz1.cz",
+   "value": 222
+  },
+  {
+   "s": "sk1.sk",
+   "t": "lu1.lu",
+   "value": 6
+  },
+  {
+   "s": "se1.se",
+   "t": "ch1.ch",
+   "value": 1240
+  },
+  {
+   "s": "es1.es",
+   "t": "sk1.sk",
+   "value": 677
+  },
+  {
+   "s": "ch1.ch",
+   "t": "it1.it",
+   "value": 39448
+  },
+  {
+   "s": "pt1.pt",
+   "t": "nl1.nl",
+   "value": 145
+  },
+  {
+   "s": "hu1.hu",
+   "t": "pl1.pl",
+   "value": 218
+  },
+  {
+   "s": "uk1.uk",
+   "t": "si1.si",
+   "value": 162
+  },
+  {
+   "s": "se1.se",
+   "t": "hu1.hu",
+   "value": 1138
+  },
+  {
+   "s": "at1.at",
+   "t": "sk1.sk",
+   "value": 3
+  },
+  {
+   "s": "sk1.sk",
+   "t": "de1.de",
+   "value": 10143
+  },
+  {
+   "s": "pt1.pt",
+   "t": "il1.il",
+   "value": 24
+  },
+  {
+   "s": "se1.se",
+   "t": "de1.de",
+   "value": 10253
+  },
+  {
+   "s": "si1.si",
+   "t": "gr1.gr",
+   "value": 132
+  },
+  {
+   "s": "ch1.ch",
+   "t": "uk1.uk",
+   "value": 126006
+  },
+  {
+   "s": "sk1.sk",
+   "t": "it1.it",
+   "value": 125
+  },
+  {
+   "s": "ny1.ny",
+   "t": "ch1.ch",
+   "value": 38695
+  },
+  {
+   "s": "ny1.ny",
+   "t": "gr1.gr",
+   "value": 168
+  },
+  {
+   "s": "it1.it",
+   "t": "hu1.hu",
+   "value": 442
+  },
+  {
+   "s": "fr1.fr",
+   "t": "si1.si",
+   "value": 571
+  },
+  {
+   "s": "cz1.cz",
+   "t": "it1.it",
+   "value": 285
+  },
+  {
+   "s": "pt1.pt",
+   "t": "gr1.gr",
+   "value": 31
+  },
+  {
+   "s": "pt1.pt",
+   "t": "sk1.sk",
+   "value": 38
+  },
+  {
+   "s": "nl1.nl",
+   "t": "lu1.lu",
+   "value": 188
+  },
+  {
+   "s": "es1.es",
+   "t": "nl1.nl",
+   "value": 382
+  },
+  {
+   "s": "hr1.hr",
+   "t": "uk1.uk",
+   "value": 1211
+  },
+  {
+   "s": "il1.il",
+   "t": "si1.si",
+   "value": 11
+  },
+  {
+   "s": "at1.at",
+   "t": "hu1.hu",
+   "value": 61902
+  },
+  {
+   "s": "hr1.hr",
+   "t": "fr1.fr",
+   "value": 149
+  },
+  {
+   "s": "es1.es",
+   "t": "hu1.hu",
+   "value": 838
+  },
+  {
+   "s": "il1.il",
+   "t": "pl1.pl",
+   "value": 22
+  },
+  {
+   "s": "uk1.uk",
+   "t": "nl1.nl",
+   "value": 5544
+  },
+  {
+   "s": "fr1.fr",
+   "t": "de1.de",
+   "value": 7681
+  },
+  {
+   "s": "de1.de",
+   "t": "uk1.uk",
+   "value": 2542
+  },
+  {
+   "s": "hu1.hu",
+   "t": "it1.it",
+   "value": 125
+  },
+  {
+   "s": "ie1.ie",
+   "t": "se1.se",
+   "value": 7638
+  },
+  {
+   "s": "be1.be",
+   "t": "sk1.sk",
+   "value": 32590
+  },
+  {
+   "s": "cz1.cz",
+   "t": "pt1.pt",
+   "value": 995
+  },
+  {
+   "s": "ie1.ie",
+   "t": "hr1.hr",
+   "value": 104
+  },
+  {
+   "s": "cz1.cz",
+   "t": "lu1.lu",
+   "value": 36
+  },
+  {
+   "s": "fr1.fr",
+   "t": "hu1.hu",
+   "value": 620
+  },
+  {
+   "s": "it1.it",
+   "t": "uk1.uk",
+   "value": 2857
+  },
+  {
+   "s": "at1.at",
+   "t": "pl1.pl",
+   "value": 10
+  },
+  {
+   "s": "ie1.ie",
+   "t": "cz1.cz",
+   "value": 1438
+  },
+  {
+   "s": "ch1.ch",
+   "t": "hu1.hu",
+   "value": 11671
+  },
+  {
+   "s": "il1.il",
+   "t": "de1.de",
+   "value": 11693
+  },
+  {
+   "s": "es1.es",
+   "t": "si1.si",
+   "value": 196
+  }
+ ]
+}

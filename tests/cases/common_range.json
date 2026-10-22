@@ -1,0 +1,18 @@
+{
+  "name": "common_range",
+  "request": {
+    "mode": "common",
+    "input": {
+      "transmissions": [
+        "AABCDCBA12FFABBA",
+        "00BCDCBAFFABBA77"
+      ]
+    }
+  },
+  "expect": {
+    "range": [
+      3,
+      8
+    ]
+  }
+}

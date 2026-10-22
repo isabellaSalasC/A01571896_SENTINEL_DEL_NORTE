@@ -1,0 +1,23 @@
+{
+  "name": "mst_desconectado",
+  "request": {
+    "mode": "mst",
+    "input": {
+      "nodes": [
+        "A",
+        "B",
+        "C"
+      ],
+      "edges": [
+        [
+          "A",
+          "B",
+          1
+        ]
+      ]
+    }
+  },
+  "expect": {
+    "connected": false
+  }
+}

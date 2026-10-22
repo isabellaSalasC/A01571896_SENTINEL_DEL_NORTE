@@ -1,0 +1,27 @@
+{
+  "name": "maxflow_sin_camino",
+  "request": {
+    "mode": "maxflow",
+    "input": {
+      "nodes": [
+        "A",
+        "B",
+        "C"
+      ],
+      "edges": [
+        {
+          "id": 0,
+          "u": "A",
+          "v": "B",
+          "cost": 1,
+          "capacity": 7
+        }
+      ],
+      "source": "A",
+      "sink": "C"
+    }
+  },
+  "expect": {
+    "max_flow": 0
+  }
+}

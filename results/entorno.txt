@@ -1,0 +1,6 @@
+Sistema: macOS-15.5-arm64-arm-64bit-Mach-O
+Procesador: arm
+Python: 3.14.7
+Semilla: 2038
+Compilacion: g++ -std=c++17 -O2 -o build/sentinel src/main.cpp
+Procedimiento: python3 tests/benchmark.py

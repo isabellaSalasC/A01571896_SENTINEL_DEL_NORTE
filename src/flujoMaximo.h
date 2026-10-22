@@ -83,6 +83,10 @@ public:
 	 * Regresa:
 	 *   - Valor entero de 64 bits con el flujo maximo alcanzable.
 	 */
+	const vector<vector<Arista>>& obtenerAdyacencia() const {
+		return adyacencia;
+	}
+
 	long long obtenerFlujoMaximo(int origen, int destino) {
 		long long flujoMaximo = 0;
 		bool existeCaminoAumento = true;

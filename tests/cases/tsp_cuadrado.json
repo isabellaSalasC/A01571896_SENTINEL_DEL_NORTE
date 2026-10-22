@@ -1,0 +1,51 @@
+{
+  "name": "tsp_cuadrado",
+  "request": {
+    "mode": "tsp",
+    "input": {
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "edges": [
+        [
+          "A",
+          "B",
+          1
+        ],
+        [
+          "B",
+          "C",
+          1
+        ],
+        [
+          "C",
+          "D",
+          1
+        ],
+        [
+          "D",
+          "A",
+          1
+        ],
+        [
+          "A",
+          "C",
+          5
+        ],
+        [
+          "B",
+          "D",
+          5
+        ]
+      ],
+      "start": "A"
+    }
+  },
+  "expect": {
+    "cost": 4,
+    "exact": true
+  }
+}
