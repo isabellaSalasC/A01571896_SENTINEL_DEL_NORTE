@@ -26,8 +26,8 @@ inline vector<int> computeFailure(const string& P) {
         }
         if (P[i] == P[j]) {
             ++j;
-            f[i] = j;
         }
+        f[i] = j;
     }
 
     return f;
