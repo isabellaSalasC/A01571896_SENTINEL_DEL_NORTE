@@ -1,58 +1,112 @@
 #ifndef ARBOL_EXPAN_MIN_H
 #define ARBOL_EXPAN_MIN_H
 
+#include <algorithm>
+#include <numeric>
+#include <queue>
 #include <vector>
-#include <climits>
-#include <utility>
+
+#include "grafo.h"
 
 using namespace std;
 
-// Resultado del cableado: qué colonias se conectan y cuántos km de fibra se usan
+// Resultado del despliegue: enlaces elegidos y costo total
 struct ResultadoMST {
-    vector<pair<int, int>> conexiones;
-    int costoTotal;
+    vector<Enlace> enlaces;
+    double costoTotal = 0;
+    bool conexo = true;
 };
 
-// Algoritmo de Prim sobre la matriz de distancias.
-// Complejidad: O(N^2) tiempo, O(N) memoria extra.
-// Se usa la versión con arreglo (sin heap) porque la matriz es un grafo denso:
-// todas las colonias tienen distancia a todas, así que E = N^2.
-inline ResultadoMST arbolExpansionMinima(const vector<vector<int>>& distancias) {
-    int n = distancias.size();
-    ResultadoMST resultado = {{}, 0};
-    if (n <= 1) return resultado;
+// Union-Find: dice en qué "componente" está cada nodo.
+// Con compresión de caminos y unión por rango cada operación es casi O(1).
+class UnionFind {
+private:
+    vector<int> padre;
+    vector<int> rango;
 
-    vector<bool> enArbol(n, false);      // ¿la colonia ya está cableada?
-    vector<int> costoMinimo(n, INT_MAX); // cable más barato para conectarla al árbol
-    vector<int> conectadoDesde(n, -1);   // desde qué colonia sale ese cable
+public:
+    UnionFind(int n) : padre(n), rango(n, 0) {
+        iota(padre.begin(), padre.end(), 0);
+    }
 
-    costoMinimo[0] = 0; // Empezamos en la colonia A
-
-    for (int paso = 0; paso < n; ++paso) {
-        // 1. Elegir la colonia fuera del árbol con el cable más barato
-        int u = -1;
-        for (int v = 0; v < n; ++v) {
-            if (!enArbol[v] && (u == -1 || costoMinimo[v] < costoMinimo[u])) {
-                u = v;
-            }
+    int encontrar(int x) {
+        while (padre[x] != x) {
+            padre[x] = padre[padre[x]];
+            x = padre[x];
         }
+        return x;
+    }
 
-        // 2. Meterla al árbol y guardar la conexión que usamos
-        enArbol[u] = true;
-        if (conectadoDesde[u] != -1) {
-            resultado.conexiones.push_back({conectadoDesde[u], u});
-            resultado.costoTotal += costoMinimo[u];
+    // Une dos componentes. Regresa false si ya estaban unidos (formaría ciclo).
+    bool unir(int a, int b) {
+        a = encontrar(a);
+        b = encontrar(b);
+        if (a == b) return false;
+        if (rango[a] < rango[b]) swap(a, b);
+        padre[b] = a;
+        if (rango[a] == rango[b]) ++rango[a];
+        return true;
+    }
+};
+
+// Kruskal: ordenar enlaces de más barato a más caro y tomar cada uno
+// si no forma ciclo. O(E log E). Es el que usamos porque la red es dispersa (E ~ N).
+inline ResultadoMST mstKruskal(const Red& red) {
+    int n = red.numNodos();
+    ResultadoMST resultado;
+
+    vector<Enlace> ordenados = red.enlaces;
+    // stable_sort: si hay empate en costo, se respeta el orden de entrada (resultado reproducible)
+    stable_sort(ordenados.begin(), ordenados.end(),
+                [](const Enlace& a, const Enlace& b) { return a.costo < b.costo; });
+
+    UnionFind componentes(n);
+    for (const Enlace& e : ordenados) {
+        if (e.origen != e.destino && componentes.unir(e.origen, e.destino)) {
+            resultado.enlaces.push_back(e);
+            resultado.costoTotal += e.costo;
         }
+    }
+    resultado.conexo = n <= 1 || (int)resultado.enlaces.size() == n - 1;
+    return resultado;
+}
 
-        // 3. Ver si desde u ahora es más barato llegar a las demás colonias
-        for (int v = 0; v < n; ++v) {
-            if (!enArbol[v] && distancias[u][v] < costoMinimo[v]) {
-                costoMinimo[v] = distancias[u][v];
-                conectadoDesde[v] = u;
+// Prim con cola de prioridad: crecer el árbol desde un nodo tomando siempre
+// el enlace más barato que sale de él. O(E log V). Segunda técnica para comparar.
+inline ResultadoMST mstPrim(const Red& red) {
+    int n = red.numNodos();
+    ResultadoMST resultado;
+    if (n == 0) return resultado;
+
+    // Lista de adyacencia: para cada nodo, {vecino, índice del enlace}
+    vector<vector<pair<int, int>>> vecinos(n);
+    for (int i = 0; i < (int)red.enlaces.size(); ++i) {
+        vecinos[red.enlaces[i].origen].push_back({red.enlaces[i].destino, i});
+        vecinos[red.enlaces[i].destino].push_back({red.enlaces[i].origen, i});
+    }
+
+    vector<bool> enArbol(n, false);
+    // Cola: {costo, índice del enlace, nodo al que llega}. greater = sale el más barato.
+    priority_queue<tuple<double, int, int>, vector<tuple<double, int, int>>, greater<>> cola;
+
+    for (int inicio = 0; inicio < n; ++inicio) { // Por si la red no es conexa
+        if (enArbol[inicio]) continue;
+        if (inicio > 0) resultado.conexo = false;
+        enArbol[inicio] = true;
+        for (auto [v, idx] : vecinos[inicio]) cola.push({red.enlaces[idx].costo, idx, v});
+
+        while (!cola.empty()) {
+            auto [costo, idx, u] = cola.top();
+            cola.pop();
+            if (enArbol[u]) continue; // Ya estaba conectado: este enlace formaría ciclo
+            enArbol[u] = true;
+            resultado.enlaces.push_back(red.enlaces[idx]);
+            resultado.costoTotal += costo;
+            for (auto [v, siguiente] : vecinos[u]) {
+                if (!enArbol[v]) cola.push({red.enlaces[siguiente].costo, siguiente, v});
             }
         }
     }
-
     return resultado;
 }
 
