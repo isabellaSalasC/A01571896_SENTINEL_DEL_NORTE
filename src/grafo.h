@@ -78,7 +78,7 @@ public:
                     cap = buscarClave(e, {"capacity", "capacidad", "cap"});
                 }
                 if (!a || !b || !w) fallar("Enlace con campos faltantes");
-                red.enlaces.push_back({indiceDe(*a), indiceDe(*b), w->numero});
+                red.enlaces.push_back({indiceDe(*a), indiceDe(*b), w->numero, cap ? cap->numero : w->numero});
             }
         }
 
