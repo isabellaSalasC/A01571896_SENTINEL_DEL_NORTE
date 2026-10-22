@@ -1,96 +1,148 @@
+/*
+ * Modulo I: Network Intelligence - Flujo Maximo
+ * Descripcion: Algoritmo de Edmonds-Karp (BFS) para calcular el flujo maximo
+ *              de informacion entre dos centrales en la red troncal.
+ * Responsable: Sophia Alexandra Ramos García
+ */
+
+#ifndef FLUJO_MAXIMO_H
+#define FLUJO_MAXIMO_H
+
 #include <vector>
 #include <algorithm>
 #include <queue>
-#include <climits>
+#include <limits>
 #include <iostream>
 
 using namespace std;
 
+// Estructura que representa una arista en la red residual
 struct Arista {
-    int destino;
-    int capacidad;
-    int flujo;
-    int aristaAnterior;
+	int destino = -1;
+	long long capacidad = 0;
+	long long flujo = 0;
+	int aristaAnterior = -1;
 
-    int capacidadResidual() const {
-        return capacidad - flujo;
-    }
+	/*
+	 * Calcula la capacidad residual disponible en la arista.
+	 * Parametros: Ninguno.
+	 * Regresa:
+	 *   - Valor entero de 64 bits con la capacidad residual.
+	 */
+	long long capacidadResidual() const {
+		return capacidad - flujo;
+	}
 };
 
-class grafoFlujo {
+// Clase que representa un grafo de flujo para calculo de capacidad maxima
+class GrafoFlujo {
 private:
-    vector<vector<Arista>> adyacencia;
-    int numTotalNodos;
+	vector<vector<Arista>> adyacencia;
+	int numTotalNodos = 0;
 
 public:
-    grafoFlujo(int nodos) {
-        numTotalNodos = nodos;
-        adyacencia.resize(numTotalNodos);
-    }
+	/*
+	 * Constructor por defecto de GrafoFlujo.
+	 * Parametros: Ninguno.
+	 */
+	GrafoFlujo() {
+		numTotalNodos = 0;
+	}
 
-    void agregarArista(int origen, int destino, int capacidad) {
-        // Arista original con la capacidad dada
-        Arista dir = {destino, capacidad, 0, static_cast<int>(adyacencia[destino].size())};
+	/*
+	 * Constructor parametrizado que asigna la cantidad total de nodos.
+	 * Parametros:
+	 *   - nodos: Cantidad total de nodos en la red.
+	 */
+	GrafoFlujo(int nodos) {
+		numTotalNodos = nodos;
+		adyacencia.resize(numTotalNodos);
+	}
 
-        // Arista residual inversa con capacidad 0
-        Arista inv = {origen, 0, 0, static_cast<int>(adyacencia[origen].size())};
+	/*
+	 * Agrega una arista dirigida con su correspondiente arista residual inversa.
+	 * Parametros:
+	 *   - origen: Identificador del nodo origen.
+	 *   - destino: Identificador del nodo destino.
+	 *   - capacidad: Capacidad maxima de transmision de la arista.
+	 * Regresa: Sin valor de retorno.
+	 */
+	void agregarArista(int origen, int destino, long long capacidad) {
+		Arista aristaDirecta = { destino, capacidad, 0, static_cast<int>(adyacencia[destino].size()) };
+		Arista aristaInversa = { origen, 0, 0, static_cast<int>(adyacencia[origen].size()) };
 
-        adyacencia[origen].push_back(dir);
-        adyacencia[destino].push_back(inv);
-    }
+		adyacencia[origen].push_back(aristaDirecta);
+		adyacencia[destino].push_back(aristaInversa);
+	}
 
-    int obtenerFlujoMaximo(int origen, int destino) {
-        int flujoMaximo = 0;
+	/*
+	 * Calcula el flujo maximo de informacion entre un nodo origen y un nodo destino (Edmonds-Karp).
+	 * Parametros:
+	 *   - origen: Nodo fuente de la red.
+	 *   - destino: Nodo sumidero de la red.
+	 * Regresa:
+	 *   - Valor entero de 64 bits con el flujo maximo alcanzable.
+	 */
+	long long obtenerFlujoMaximo(int origen, int destino) {
+		long long flujoMaximo = 0;
+		bool existeCaminoAumento = true;
 
-        //Edmonds-Karp (BFS)
-        while (true) {
-            // Guarda para cada nodo: {nodo_padre, indice_de_arista_usada}
-            vector<pair<int, int>> padre(numTotalNodos, {-1, -1});
-            queue<int> q;
+		while (existeCaminoAumento) {
+			vector<pair<int, int>> padre(numTotalNodos, { -1, -1 });
+			queue<int> colaNodos;
+			bool encontradoDestino = false;
 
-            q.push(origen);
+			colaNodos.push(origen);
 
-            // BFS para hallar el camino más corto al destino
-            while (!q.empty()) {
-                int u = q.front();
-                q.pop();
+			while (!colaNodos.empty() && !encontradoDestino) {
+				int nodoActual = colaNodos.front();
+				colaNodos.pop();
 
-                if (u == destino) break;
+				if (nodoActual == destino) {
+					encontradoDestino = true;
+				} else {
+					size_t totalAdyacentes = adyacencia[nodoActual].size();
+					for (size_t i = 0; i < totalAdyacentes; ++i) {
+						const Arista& aristaActual = adyacencia[nodoActual][i];
 
-                for (size_t i = 0; i < adyacencia[u].size(); ++i) {
-                    const Arista& e = adyacencia[u][i];
-                    
-                    if (e.capacidadResidual() > 0 && padre[e.destino].first == -1 && e.destino != origen) {
-                        padre[e.destino] = {u, static_cast<int>(i)};
-                        q.push(e.destino);
-                    }
-                }
-            }
+						if (aristaActual.capacidadResidual() > 0 && padre[aristaActual.destino].first == -1 && aristaActual.destino != origen) {
+							padre[aristaActual.destino] = { nodoActual, static_cast<int>(i) };
+							colaNodos.push(aristaActual.destino);
+						}
+					}
+				}
+			}
 
-            // Si el destino no es alcanzable, finaliza la búsqueda de flujo
-            if (padre[destino].first == -1) break;
+			if (padre[destino].first == -1) {
+				existeCaminoAumento = false;
+			} else {
+				long long cuelloBotella = numeric_limits<long long>::max();
+				int nodoCamino = destino;
 
-            //Encuentra la capacidad residual mínima (cuello de botella) del camino
-            int cuelloBotella = INT_MAX;
-            for (int v = destino; v != origen; v = padre[v].first) {
-                int u = padre[v].first;
-                int idx = padre[v].second;
-                cuelloBotella = min(cuelloBotella, adyacencia[u][idx].capacidadResidual());
-            }
+				while (nodoCamino != origen) {
+					int nodoPadre = padre[nodoCamino].first;
+					int indiceArista = padre[nodoCamino].second;
+					cuelloBotella = min(cuelloBotella, adyacencia[nodoPadre][indiceArista].capacidadResidual());
+					nodoCamino = nodoPadre;
+				}
 
-            //Actualiza flujos de arista directa e inversa
-            for (int v = destino; v != origen; v = padre[v].first) {
-                int u = padre[v].first;
-                int idx = padre[v].second;
-                int revIdx = adyacencia[u][idx].aristaAnterior;
+				nodoCamino = destino;
+				while (nodoCamino != origen) {
+					int nodoPadre = padre[nodoCamino].first;
+					int indiceArista = padre[nodoCamino].second;
+					int indiceInversa = adyacencia[nodoPadre][indiceArista].aristaAnterior;
 
-                adyacencia[u][idx].flujo += cuelloBotella;
-                adyacencia[v][revIdx].flujo -= cuelloBotella;
-            }
+					adyacencia[nodoPadre][indiceArista].flujo += cuelloBotella;
+					adyacencia[nodoCamino][indiceInversa].flujo -= cuelloBotella;
+					nodoCamino = nodoPadre;
+				}
 
-            flujoMaximo += cuelloBotella;
-        }
+				flujoMaximo += cuelloBotella;
+			}
+		}
 
-        return flujoMaximo;
-    }
+		return flujoMaximo;
+	}
 };
+
+#endif // FLUJO_MAXIMO_H
