@@ -9,7 +9,7 @@ El proyecto está diseñado bajo el patrón Header-Only Library, donde toda la l
    * mst: Cálculo del Árbol de Expansión Mínima (Kruskal / Prim).
    * tsp: Ruta óptima de inspección física pasando por todos los nodos (TSP).
    * max_flow: Análisis de capacidad de transmisión evaluando Edmonds-Karp y Dinic simultáneamente.
-   * voronoi: Cobertura de regiones espaciales y asignación de contrataciones a la central más cercana mediante el algoritmo de Bowyer-Watson.
+   * voronoi: Cobertura de regiones espaciales y asignación de contrataciones a la central más cercana recortando el dominio con el semiplano de cada central (O(n²)); también se incluye la triangulación de Delaunay (Bowyer-Watson) en `diagramaVoronoi.h`.
 2. Módulo II: Ciberseguridad y Procesamiento de Transmisiones
    * matching: Localización de firmas de malware en transmisiones de red mediante Knuth-Morris-Pratt (KMP).
    * palindrome: Detección de secuencias palindrómicas espejo en código malicioso con Manacher.
@@ -20,8 +20,28 @@ El proyecto está diseñado bajo el patrón Header-Only Library, donde toda la l
 * No ocupa ninguna librería adicional
 
 ## Compilación
+Desde la raíz del repositorio:
 
-## Instalalción
+```
+mkdir -p build
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -o build/sentinel src/main.cpp
+```
+
+* Estándar: C++17. Compila sin advertencias con g++ y con clang++.
+* El ejecutable resultante es `build/sentinel`. No se incluye en el repositorio (`build/` está en `.gitignore`), así que hay que compilarlo.
+* En Windows (MinGW) el mismo comando genera `build/sentinel.exe`.
+
+## Instalación
+1. Instalar un compilador de C++ con soporte para C++17:
+   * macOS: `xcode-select --install` (incluye clang++).
+   * Linux (Debian/Ubuntu): `sudo apt install g++`.
+   * Windows: MinGW-w64 o MSYS2.
+2. Clonar o descomprimir el proyecto y compilar con el comando de la sección anterior.
+3. Opcional, solo para la interfaz web y las pruebas:
+   * Node.js 18 o superior para `app/server.js` (no requiere `npm install`, no usa paquetes externos).
+   * Python 3 para `tests/run_tests.py` y `tests/benchmark.py`.
+
+El núcleo en C++ funciona solo, sin la interfaz, ni Node ni Python.
 
 ## Ejecución
 El programa funciona leyendo un objeto JSON desde la entrada estándar (stdin) y enviando el resultado en JSON a la salida estándar (stdout).
